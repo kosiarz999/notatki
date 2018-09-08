@@ -1,0 +1,81 @@
+konwencje nazw
+
+Paczki
+źródło: http://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7
+zawsze z małej litery
+nazwy paczek powinny być unikatowe
+użyj odwróconej nazwy domeny
+zastępuj blokowane znaki (np. - ) podkreśleniem (underscore) _
+elementy nazwy domeny zaczynające się od liczb powinny zacząć się od podkreślenia _
+elementy nazwy domeny, które zawierają nazwy kluczowe języka Java powinny zaczynać się od podkreślenia _
+Przykłady:
+Switch.supplier.com => com.supplier._switch
+1world.com => com._1world
+Experts-exchange.com => com.experts_exchange
+java.lang
+java.io
+org.xml.sax.helpers
+com.timbuchalka.autoboxing
+
+Klasy
+CamelCase
+nazwy powinny być rzeczownikami
+nazwa zaczyna się z dużej litery
+każde słowo w nazwie również powinno zaczynać się z dużej litery
+Przykłady:
+ArrayList
+LinkedList
+String
+TopSong
+GearBox
+Main
+
+Interfejsy
+CamelCase
+zwróć uwagę na to czym staną się obiekty, które będą implementować interfejs albo co będą w stanie zrobić
+Przykłady:
+List
+Comparable
+Serializeable
+
+Metody
+mixedCase
+głównie czasowniki
+opisują funkcje lub rezultat
+Przykłady:
+size()
+getName()
+addPlayer()
+
+Stałe
+wszystkie litery z dużej
+słowa oddzielone są podkreśleniem _
+deklarowane słowem final
+Przykłady:
+Static final int MAX_INT
+Static final short SEVERITY_ERROR
+Static final double P1 == 3.141592653
+
+Zmienne
+mixedCase
+zaczynają się z małej litery
+nie używać podkreślenia _
+Przykłady:
+i
+league
+
+Parametry
+pojedyncza duża litera
+Przykłady:
+E - Element
+K - Key
+T - Type
+V - Value
+S, U, V, etc. - 2, 3, 4 typ
+
+
+
+
+
+
+

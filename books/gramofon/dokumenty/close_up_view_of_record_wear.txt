@@ -1,0 +1,17 @@
+Close up view record wear
+Walter E. Davies
+1980
+
+Artykuł ukazujący zniszczenia winyli po 50 odtworzeniach wraz ze zdjęciami z SEM. Deformacje przybierają trzy formy:
+    1. conchoidal fracture, czyli rozszczepianie winyla zbliżone formą do tłukącego się szkła, czy łupanego krzemienia, w efekcie powstają dziury,
+    2. "stick-slip", albo "szarpanie-dłubanie" (tł. moje), wynik tarcia ślizgowego, w efekcie powstają fluktuacje ścianek, co ciekawe efekt ten powstaje w wyniku
+    złego doboru domieszki do winyla, więc tego typu zniszczenia nie występują na każdej płycie,
+    3. wyżłobienia równoległe do ściany rowka, co ciekawe stanowią one najmniejszy problem i nie muszą być rejestrowane przez igłę.
+    
+Ponadto w artykle zawarto kilka spostrzeżeń:
+    1. Nawet najlepsze tłoczenia mają zniekształcenia i dziury powstałe na wskutek odrywania płyty od matrycy. Jednakże znajdują się one najczęściej na samym
+    dnie rowka, więc w konsekwencji nie są rejestrowane.
+    2. Jakość winyla ma spory wpływ na jego zużycie w miarę używania.
+    3. "Strzelania" wynikają głównie ze zniekształceń i brudu, elektrostatyka stanowi tu najmniejszy problem i ma znaczenie głównie jako siła przyciągająca brud.
+    4. Materiał stosowany do wytwarzania płyt to nie tylko polichlorek winylu, ale również domieszki. Zbyt duża gęstość "wypełniaczy" w danym miejscu
+    przyczynia się do conchoidal fracture (powstania dziur), a zły dobór wypełniaczy jest przyczyną "stick-slip".

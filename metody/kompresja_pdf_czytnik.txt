@@ -1,0 +1,4 @@
+Kompresja pdf ze skanami pod czytnik
+
+1. Free PDF Compressor - ustawienia na ebooka
+2. W razie czego obrócić tutaj https://smallpdf.com/rotate-pdf

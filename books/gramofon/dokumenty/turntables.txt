@@ -1,0 +1,15 @@
+Turntables
+Joseph F. Grado
+1977
+
+turntables - str. 3 i 4 - pomysł na izolację gramofonu od wstrząsów z otoczenia, system sprężyn, dociążająca rama. Dla 6-ciu sprężyn,
+dla mojego gramofonu, powinny mieć one stałą sprężystości pomiędzy 281, a 633. Oblicza się to ze wzoru T = 2*PI*sqrt(m/k). Częstotliwość sprężyny: 2 - 3 Hz.
+
+turntables_2 - systemy napędów i próba minimalizacji szumów. Na ostatniej stronie ciekawy projekt gramofonu o bezpośrednim napędzie z zamocowanym
+kołem granitowym tuż nad silnikiem. Dodatkowo wspomniana próba użycia epoksydu do tworzenia płyt dociążających gramofon, np. na podstawę i ściany gramofonu.
+
+turntables_3 - konstrukcja ramienia. Różne projekty (najlepszy unipivot), zastosowanie różnych materiałów (drewno, aluminium), dodatkowa masa
+w podstawie i osi ramia w celu eliminacji drgań.
+
+turntables_4 - system wkładka/ramię. Wytłumaczenie znaczenia rezonansu ramienia (wow i fluter) oraz umiejętnego dobrania wkładki
+pod efektywną wagę ramienia.

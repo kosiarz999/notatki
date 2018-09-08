@@ -1,0 +1,11 @@
+Modyfikatory dostępu
+
+Top level (klasy, interfejsy, enumy):
+public - obiekty są dostępne wszędzie, nawet gdy są w zaimportowanych paczkach, 
+package-private - obiekt jest dostępny jedynie wewnątrz własnej paczki. Jest definiowany przez niedefiniowanie, czyli nie piszemy żadnego modyfikatora, gdy chcemy wymusić taki tryb dostępu.
+
+Member level:
+public - to samo co powyżej, publiczna metoda jest dostępna wszędzie, gdzie dana paczka będzie zaimportowana,
+package-private - to samo co powyżej, niezadeklarowanie modyfikatora sprawia, że metoda, zmienna, itp. będzie dostępna jedynie w paczce, w której występuje,
+private - obiekt jest widoczny jedynie w klasie, w której został napisany, nawet subklasa nie jest tutaj wyjątkiem,
+protected - obiekt jest widoczny w klasie, w której został napisany, ale również w subklasie innej paczki.

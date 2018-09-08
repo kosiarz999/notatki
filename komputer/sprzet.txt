@@ -1,0 +1,12 @@
+Sprzęt
+
+Procesor - Intel Core i3 8100, 3,66GHz, 6MB, BOX
+Karty graficzne - Zotac GeForce GTX 1050Ti OC 4GB GDDR5
+Płyta główna - Gigabyte Z370 AORUS Gaming K3, Z370, DDR4
+RAM - Crucial UOIMM Ballistix Elite DDR4, 8GB, 3466MHz, CL16.
+Zasilacz - Silentium PC Vero M2 Bronze 600W SPC166
+Obudowy - Silentium PC Gladius M35 (SPC128)
+SSD - Corsair Force MP500 240GB M.2 PCIe 
+HHD - Toshiba HDD 2TB SATAIII 7200 (DT01ACA200)
+DVD - LG SuperMulti GH24NSD1RBBB 
+stan na 29 X 2017, 3620,33zł.

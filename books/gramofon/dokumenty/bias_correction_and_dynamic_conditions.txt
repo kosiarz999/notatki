@@ -1,0 +1,13 @@
+Bias correction and dynamic conditions
+John Wright
+1969
+
+Doskonały, kluczowy dokument ilustrujący eksperyment, który empirycznie dowiódł kilka tez:
+    1. Bias nie zależy od prędkości.
+    2. Bias nie zmienia się wraz z odtwarzaniem, innymi słowy nie zależy od promienia odtwarzanej ścieżki.
+    3. Bias zależy od offset angle, a nie od długości ramienia.
+    4. Bias jest wprost proporcjonalny do nacisku igły i tworzy prosty wykres liniowy.
+    5. Współczynnik tarcia jest odwrotnie proporcjonalny do promienia igły (im mniejszy promień igły tym większe tarcie będzie generował). Wniosek - bezsens
+    stosowania igieł o promieniach mniejszych niż 0.3. Dla igły eliptycznej 0,3x0,8 mila współczynnik tarcia wynosi 0,45.
+    Dla sferycznej igły 0,7 mila współczynnik tarcia wynosi 0,39.
+    6. Współczynnik tarcia jest funkcją wykładniczą głośności, innymi słowy im ścieżka ma więcej db (bardziej się wychyla) tym większe tarcie będzie generować.
