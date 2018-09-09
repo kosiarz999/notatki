@@ -20,4 +20,8 @@ WinQuake (software)
 GOG.COM:
 Akalabeth (.sh, trzeba ustawiać uprawnienia, poza tym nie wiadomo jak wyjść z gry)
 Amnesia: The Dark Descent (.sh)
+Beneath a Steel Sky (.sh)
+Dragonsphere (.sh)
 Duke Nukem 3D (.sh, uprawnienia)
+FTL (.sh)
+One Unit Whole Blood (.sh)

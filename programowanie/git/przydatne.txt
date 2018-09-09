@@ -1,0 +1,1 @@
+plik .gitignore zawiera pliki, rozszerzenia i katalogi, które mają być ignorowane w respozytorium
