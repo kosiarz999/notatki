@@ -1,0 +1,22 @@
+STEAM:
+
+Bastion
+Darwinia
+Defcon
+Democracy 3
+DOOM II (Steam Play, wspierany)
+Hacker Evolution - Untold
+Half-Life
+Half-Life: Blue Shift
+Half-Life: Opposing Force
+Limbo
+Mark of the Ninja
+Multiwinia
+Ultimate Doom (Steam Play)
+Uplink
+WinQuake (software)
+
+
+GOG.COM:
+Akalabeth (.sh, trzeba ustawiać uprawnienia, poza tym nie wiadomo jak wyjść z gry)
+Duke Nukem 3D (.sh, uprawnienia)
