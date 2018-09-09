@@ -19,4 +19,5 @@ WinQuake (software)
 
 GOG.COM:
 Akalabeth (.sh, trzeba ustawiać uprawnienia, poza tym nie wiadomo jak wyjść z gry)
+Amnesia: The Dark Descent (.sh)
 Duke Nukem 3D (.sh, uprawnienia)
