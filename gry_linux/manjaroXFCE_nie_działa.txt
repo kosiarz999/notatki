@@ -1,0 +1,10 @@
+STEAM:
+GlQuake (Steam Play, wspierany)
+Mount & Blade (Steam Play, wspierany)
+Mount & Blade: With Fire and Sword (Steam Play, wspierany)
+
+GOG.COM:
+Hotline Miami (brak libopenal, nie ma go w repozytorium i w snap)
+Botanicula (brak libgtk-x11)
+Door Kickers (brak libopenal)
+Septera Core (wyrzuca po uruchomieniu, zostawia rozdzielczość gry 640x480)
