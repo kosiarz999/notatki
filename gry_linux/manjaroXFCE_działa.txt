@@ -10,9 +10,18 @@ Half-Life (+ wszelkie dodatki)
 Half-Life 2 (+ wszelkie dodatki)
 Limbo
 Mark of the Ninja
+Mount & Blade: Warband
 Multiwinia
+Overlord (słaba optymalizacja, bezwładna myszka)
+Overlord: Rising Hell (słaba optymalizacja, bezwładna myszka)
+Overlord II (słaba optymalizacja, bezwładna myszka)
+Serious Sam 3: BFE (słaba optymalizacja)
+Serious Sam Fusion 2017 (słaba optymalizacja)
+Spec Ops: The Line (słaba optymalizacja, u mnie nie pogram)
+STALKER: Cień Czarnobyla (Steam Play, na dx8 chodzi, na dx9 nie pogram)
 Ultimate Doom (Steam Play)
 Uplink
+Warhammer 40k: Dawn of War - Soulstorm (Steam Play, wspierany, długo ładuje i słaba grafika, ale działa)
 WinQuake (software)
 
 

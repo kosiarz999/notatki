@@ -1,7 +1,10 @@
 STEAM:
+Borderlands 2 (wywala po uruchomieniu)
 GlQuake (Steam Play, wspierany)
 Mount & Blade (Steam Play, wspierany)
 Mount & Blade: With Fire and Sword (Steam Play, wspierany)
+Star Wars: Knights of the Old Republic II
+XCOM: Enemy Unknown (zawiesza się po uruchomieniu)
 
 GOG.COM:
 Hotline Miami (brak libopenal, nie ma go w repozytorium i w snap)
