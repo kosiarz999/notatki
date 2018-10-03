@@ -1,0 +1,2 @@
+- unikaj ofert pracy z wykorzystaniem Hadoop
+- unikaj Business Intelligence (analityka biznesowa) jak plagi
