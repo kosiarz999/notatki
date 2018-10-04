@@ -1,8 +1,14 @@
 STEAM:
 Borderlands 2 (wywala po uruchomieniu)
+Combat Wings (Steam Play)
+Dogfight 1942 (Steam Play)
+FUEL (Steam Play)
 GlQuake (Steam Play, wspierany)
+GRID (Steam Play)
 Mount & Blade (Steam Play, wspierany)
 Mount & Blade: With Fire and Sword (Steam Play, wspierany)
+Rocksmith (Steam Play)
+Rocksmith2014 (Steam Play)
 Star Wars: Knights of the Old Republic II
 XCOM: Enemy Unknown (zawiesza się po uruchomieniu)
 
