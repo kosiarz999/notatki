@@ -1,0 +1,4 @@
+Frictional drag and bias compensation. Experimental results indicate that compensating offset arms is a complex matter. 
+Roderick Snell i Alec Rangabe.
+
+Próba dokładnego zbadania biasu (antyskatingu) przy użyciu różnych wkładek i płyt testowych. Nie zagłębiając się w szczegóły ogólny wniosek tego artykułu jest taki, że antyskating zmiania się w czasie odtwarzania płyty dlatego należy rekompensować ŚREDNIĄ wartość biasu "for the mean drag of a record" (dla średniego oporu?)

@@ -11,3 +11,5 @@ Doskonały, kluczowy dokument ilustrujący eksperyment, który empirycznie dowi�
     stosowania igieł o promieniach mniejszych niż 0.3. Dla igły eliptycznej 0,3x0,8 mila współczynnik tarcia wynosi 0,45.
     Dla sferycznej igły 0,7 mila współczynnik tarcia wynosi 0,39.
     6. Współczynnik tarcia jest funkcją wykładniczą głośności, innymi słowy im ścieżka ma więcej db (bardziej się wychyla) tym większe tarcie będzie generować.
+
+Artykuł ten był wielokrotnie krytykowany za uproszczenia, ale żaden z badaczy nie był w stanie popełnić badań, z których wynikałoby coś więcej niż: "to zbyt skomplikowane".
