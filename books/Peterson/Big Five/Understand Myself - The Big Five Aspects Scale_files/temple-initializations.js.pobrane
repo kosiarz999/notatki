@@ -1,0 +1,69 @@
+(function (b) {
+    b(document).ready(function () {
+        function a() {
+            var c = b("header.navbar").outerHeight(true) + "px";
+            b(".carousel .item .carousel-caption").css("margin-top", c);
+            b("#bt-slider").css("min-height", c);
+            b("#bt-pagetitle").css("padding-top", c);
+            b("#SearchBar").css("top", c)
+        }
+
+        function n() {
+            if (b(document).scrollTop() > 50) {
+                b(".navbar").removeClass("navbar-statica-default");
+                b(".navbar").addClass("navbar-statica-fixed")
+            } else {
+                b(".navbar").removeClass("navbar-statica-fixed");
+                b(".navbar").addClass("navbar-statica-default")
+            }
+        } (function (c) {
+            c.fn.hasScrollBar = function () {
+                return this.get(0).scrollHeight > this.height()
+            }
+        })(jQuery);
+
+        function k() {
+            var d = b("<div>").css({
+                visibility: "hidden",
+                width: 100,
+                overflow: "scroll"
+            }).appendTo("body"),
+                c = b("<div>").css({
+                    width: "100%"
+                }).appendTo(d).outerWidth();
+            d.remove();
+            return 100 - c
+        }
+        setTimeout(function () {
+            n();
+            a()
+        }, 100);
+        setInterval(function () {
+            var c = b(".bt-footer").outerHeight(true) + "px";
+            b(".layout").css("padding-bottom", c);
+            b(".bt-footer").addClass("footerShow")
+        }, 1000);
+        var j = b(".bt-footer").outerHeight(true) + "px";
+        b(".layout").css("padding-bottom", j);
+        b('[data-toggle="offcanvas"]').on("click", function () {
+            b(".row-offcanvas").toggleClass("active")
+        });
+        var i, m = 0;
+        b(window).on("resize", function () {
+            clearTimeout(i);
+            i = setTimeout(a, m)
+        });
+        var l = k();
+        b(document).on("scroll", function () {
+            n()
+        });
+/*        if (b(document).hasScrollBar() && l > 0) {
+            b("header").css("right", l + "px");
+            b("header .container").css("right", "-" + l + "px")
+        }*/
+        if ((b(document).get(0).scrollHeight > b(document).height()) && l > 0) {
+            b("header").css("right", l + "px");
+            b("header .container").css("right", "-" + l + "px")
+        }
+    })
+})(jQuery);
