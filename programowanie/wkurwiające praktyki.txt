@@ -1,0 +1,24 @@
+Siedzę w tych kursach od 9 miesięcy i doprawdy ciężko zachować motywację jak co chwilę natrafiasz na gówna, które skutecznie wytrącają cię z równowagi.
+
+1. Zbyt teoretyczne podejście do zagadnienia.
+To jest szczególnie widoczne jak masz do czynienia z nauczycielem 40+. Zanim będziesz wiedział jak zastosować w praktyce COKOLWIEK (i nie, samo napisanie kodu nie traktuję jako praktyczne zastosowanie) to facet zmusi ciebie do nauczenia się jaka jest różnica między klasą abstrakcyjną, a interfejsem oraz jak komputer dodaje do siebie liczby binarne... Bo to takie, kurwa, ciekawe i może znajdziesz w całym swoim pierdolonym życiu jeden moment, gdzie będziesz mógł zastosować tą wiedzę w praktyce.
+Jakoś nikt nie może wpaść na to, że jak zajdzie wyjątkowa potrzeba to się tego nauczę. A teraz na samym początku to mi nie będzie do niczego potrzebne, chyba tylko po to by mi z mózgu zrobić sieczkę.
+
+2. Zbyt "praktyczne" podejście do zagadnienia, które objawia się tym, że niektórzy uczą funkcji, czy ogólnie kodu, z szybkością karabinu maszynowego, bez wytłumaczenia ich znaczenia. Widziałem to w kursach i książkach o data science, gdzie uczy się komend na morgi, bez kontekstu i bez użycia przykładów z życia wziętych, np. w polu data science aż prosi się w pierwszej kolejności o naukę data mining, gdzie potem przechodzisz do umiejętnego przetwarzania danych, popartej wiedzą ze statystyki. 
+Tymczasem dotychczasowe kursy z data science jakie widziałem na udemy (a nawet książki) skupiają się tylko na nauce komend z bibliotek pythonowych, co jest o tyle zabawne, że już się tego w taki sposób nie robi - używa się programów typu Spark. Więc... zarabiamy cudzym kosztem, nie?
+
+3. Uskutecznianie złych praktyk.
+To jest wszechobecne, nawet w poradnikach na MDNie widziałem przykłady kodu pisanego starymi metodami. Jest to o tyle zrozumiałe, że front nieustannie się zmienia, więc pewne fragmenty kodu w internecie zawsze będą napisane według starej metodologii.
+Ale to co najbardziej mnie wkurwia to zdarzenia, gdzie gościu uczy cię jakiegoś prostego warunkowania, szarpiesz się z tym pół godziny, a na końcu facet powie: "I wiesz co? Tego w ten sposób się nie pisze. Właściwy sposób wygląda tak..."
+I pół godziny czy godzina roboty idzie w piach, ty jesteś wkurwiony, a co gorsza, gdy będziesz chciał napisać coś sam, to nie będziesz wiedział w jaki sposób się za to zabrać, bo ten sam problem dotychczas rozpatrywałeś na przynajmniej 3 różne sposoby. Masakra. 
+Przykład: w js nie formatujesz wyglądu strony. Robi się to pisząc klasy w css, które następnie włączasz i wyłączasz dzięki skryptowi. 
+A normą jest, że w kursach uczy się studentów formatowania elementów w js. 
+Uskutecznia się w ten sposób złe nawyki.
+
+4. Wszyscy są kurwa zajebiści tylko ty jesteś tępy gnój.
+Czyli to wszechobecne uczucie, które cię ogarnia gdy oglądasz roadmapy i czytasz/oglądasz poradniki, gdzie mówią ci, że zrobią z ciebie full web dev w 3 miesiące, a najlepiej to w 15 dni, a ty się z tym gównem szarpiesz rok i nie wiesz czy dalej to ciągnąć. 
+Do tego doszło, że w pewnym momencie zacząłem robić testy IQ, głównie testy matryc Ravena. Jak mi w jednym teście wykazało 144 to miałem powód do beki na cały dzień :D
+
+No, także chuj. Puenta. Taa daa...
+
+Może kiedyś będzie update jak mnie znowu coś wkurwi.
