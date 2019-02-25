@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<!-- saved from url=(0058)https://spolecznosci.net/files/data.45.htm?Ho_www.tysol.pl -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>Spolecznosci.net - No matter where you are... everyone is always connected.</title></head>
+<body><script type="text/javascript" src="./geo_snet"></script><script type="text/javascript">
+window.domain = 'spolecznosci.net';
+window.adblock=1;
+</script>
+<script type="text/javascript" src="./ads.js.pobrane"></script>
+<script type="text/javascript" id="main">
+if(adblock) document.write('Hello ad blocker! ;-) ');
+(function(){
+	var target_uri = '';
+	var ut = {
+		log: function(d,n) {},
+		debug: false,
+		onReady: function(listener) {if(document.readyState=="interactive"||document.readyState=="complete"){listener();}else if(document.addEventListener){document.addEventListener('DOMContentLoaded', listener, false);}else{window.attachEvent("onload", listener);}},
+		trim12: function (s) {var s=s.replace(/^\s\s*/, ''),ws=/\s/,i=s.length;while (ws.test(s.charAt(--i))){}return s.slice(0, i + 1);},
+		insertIframe: function(s) {var i=document.createElement('iframe');i.type='text/html';i.async=true;i.src=(document.location.protocol=='https:'?'http://':'http://')+s;this.log(i.src, 'iframe');i.width=i.height='1';i.style.cssText='position:absolute;top:-1px;width:1px;height:1px;border:none;';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(i,s);return i;},
+		insertAndExecute: function(id,h) {var d = document.getElementById(id);d.innerHTML=h;var ss=d.getElementsByTagName("script");for(var x=0;x<ss.length;x++){var s=document.createElement('script');s.type="text/javascript";if(ss[x].src)s.src = ss[x].src;else s.text=ss[x].text;ss[x].parentNode.replaceChild(s,ss[x]);}},
+		RC4: (function(String, fromCharCode, random){return {key:function(length){for(var i = 0, key = []; i < length; ++i) key[i] = 1 + ((random() * 255) << 0);return fromCharCode.apply(String, key);},decode:function(key, data){return this.encode(key, data);},encode:function(key, data){for(var length = key.length, len = data.length, decode = [], a = [], i = 0, j = 0, k = 0, l = 0, $; i < 256; ++i) a[i] = i;for(i = 0; i < 256; ++i){j = (j + ($ = a[i]) + key.charCodeAt(i % length)) % 256;a[i] = a[j];a[j] = $;};for(j = 0; k < len; ++k){i = k % 256;j = (j + ($ = a[i])) % 256;length = a[i] = a[j];a[j] = $;decode[l++] = data.charCodeAt(k) ^ a[(length + $) % 256];};return fromCharCode.apply(String, decode);}}})(window.String, window.String.fromCharCode, window.Math.random),
+		sendRequest: function(url,callback) {var XMLHttpFactories = [function () {return new XMLHttpRequest()},function () {return new ActiveXObject("Msxml2.XMLHTTP")},function () {return new ActiveXObject("Msxml3.XMLHTTP")},function () {return new ActiveXObject("Microsoft.XMLHTTP")}];
+			var req = false;for (var i=0;i<XMLHttpFactories.length;i++) {try {req = XMLHttpFactories[i]();} catch (e) {continue;}break;}if (!req) return null;
+			req.open("GET",url,true);
+			req.onreadystatechange = function () {
+				if (req.readyState != 4 || (req.status != 200 && req.status != 304)) return;
+				callback(req.responseText);
+			};
+			if (req.readyState == 4/*if complete*/) return true;
+			req.send();
+			return false;
+		},
+		inArray: function(n, a) {if(Array.prototype.indexOf)return a.indexOf(n);for(var i=0, len=a.length;i<len;i++){if(a[i]===n)return i;}return -1;}
+	};
+	/* >> compat */
+	if (document.getElementsByClassName) ut.getElementsByClassName = function (className, tag, elm) { elm = elm || document; var elements = elm.getElementsByClassName(className), nodeName = (tag)? new RegExp("\\b" + tag + "\\b", "i") : null, returnElements = [], current;for(var i=0, il=elements.length; i<il; i+=1){current = elements[i];if(!nodeName || nodeName.test(current.nodeName)) returnElements.push(current);}return returnElements;};
+	else if (document.evaluate) ut.getElementsByClassName = function (className, tag, elm) {tag = tag || "*"; elm = elm || document; var classes = className.split(" "), classesToCheck = "", xhtmlNamespace = "http://www.w3.org/1999/xhtml", namespaceResolver = (document.documentElement.namespaceURI === xhtmlNamespace)? xhtmlNamespace : null, returnElements = [], elements, node;for(var j=0, jl=classes.length; j<jl; j+=1) classesToCheck += "[contains(concat(' ', @class, ' '), ' " + classes[j] + " ')]";try	{ elements = document.evaluate(".//" + tag + classesToCheck, elm, namespaceResolver, 0, null); }catch (e) { elements = document.evaluate(".//" + tag + classesToCheck, elm, null, 0, null); }while ((node = elements.iterateNext())) returnElements.push(node);return returnElements;};
+	else ut.getElementsByClassName = function (className, tag, elm) {tag = tag || "*";elm = elm || document;var classes = className.split(" "), classesToCheck = [],elements = (tag === "*" && elm.all)? elm.all : elm.getElementsByTagName(tag),current, returnElements = [], match;for(var k=0, kl=classes.length; k<kl; k+=1) classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\\s|$)"));for(var l=0, ll=elements.length; l<ll; l+=1){current = elements[l]; match = false;for(var m=0, ml=classesToCheck.length; m<ml; m+=1){match = classesToCheck[m].test(current.className);if (!match) break;}if (match) returnElements.push(current);}return returnElements;};
+	ut.JN = (typeof JSON === 'object')?JSON:{};
+	(function(l){function h(a){return 10>a?"0"+a:a}function p(a){q.lastIndex=0;return q.test(a)?'"'+a.replace(q,function(a){var c=s[a];return"string"===typeof c?c:"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)})+'"':'"'+a+'"'}function m(a,h){var c,e,k,n,g=d,f,b=h[a];b&&"object"===typeof b&&"function"===typeof b.toJSON&&(b=b.toJSON(a));"function"===typeof rep&&(b=rep.call(h,a,b));switch(typeof b){case "string":return p(b);case "number":return isFinite(b)?String(b):"null";case "boolean":case "null":return String(b);case "object":if(!b)return"null";f=[];if("[object Array]"===Object.prototype.toString.apply(b)){n=b.length;for(c=0;c<n;c+=1)f[c]=m(c,b)||"null";k=0===f.length?"[]":d?"[\n"+d+f.join(",\n"+d)+"\n"+g+"]":"["+f.join(",")+"]";d=g;return k}if(rep&&"object"===typeof rep)for(n=rep.length,c=0;c<n;c+=1)"string"===typeof rep[c]&&(e=rep[c],(k=m(e,b))&&f.push(p(e)+(d?": ":":")+k));else for(e in b)Object.prototype.hasOwnProperty.call(b,e)&&(k=m(e,b))&&f.push(p(e)+(d?": ":":")+k);k=0===f.length?"{}":d?"{\n"+d+f.join(",\n"+d)+"\n"+g+"}":"{"+f.join(",")+"}";d=g;return k}}"function"!==typeof Date.prototype.toJSON&&(Date.prototype.toJSON=function(){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+h(this.getUTCMonth()+1)+"-"+h(this.getUTCDate())+"T"+h(this.getUTCHours())+":"+h(this.getUTCMinutes())+":"+h(this.getUTCSeconds())+"Z":null},String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(){return this.valueOf()});var r=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,q=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,d,s={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"};"function"!==typeof l.stringify&&(l.stringify=function(a){d="";return m("",{"":a})});"function"!==typeof l.parse&&(l.parse=function(a,d){function c(a,e){var g,f,b=a[e];if(b&&"object"===typeof b)for(g in b)Object.prototype.hasOwnProperty.call(b,g)&&(f=c(b,g),void 0!==f?b[g]=f:delete b[g]);return d.call(a,e,b)}var e;a=String(a);r.lastIndex=0;r.test(a)&&(a=a.replace(r,function(a){return"\\u"+("0000"+a.charCodeAt(0).toString(16)).slice(-4)}));if(/^[\],:{}\s]*$/.test(a.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,"")))return e=eval("("+a+")"),"function"===typeof d?c({"":e},""):e;throw new SyntaxError("JN.parse");})})(ut.JN);
+	ut.endsWith = function(s,h) {var d=s.length-h.length;return d>=0&&s.lastIndexOf(h)===d;};
+	/* << compat */
+
+	if(document.cookie.split('debugdebugdebugdebugdebugdebugdebug').length>1) {ut.debug = true;}
+	if(ut.debug) ut.log = function(d,n) {if(n) console.log('[DATA] ', n, d); else console.log('sNet2', d);};
+
+	var siteData = function() {
+		var that = this;
+		this.enable_stats = true;
+		this.data = {
+			Pl: null,
+			Wi: null,
+			Wo: null,
+			Kr: null,
+			Re: null,
+			Ho: null,
+			Uu: null
+		};
+		this.set = function(k, v) {
+			k=k.toLowerCase();
+			v=(''+v).toLowerCase();
+			ut.log(v,'cstore.tg.set('+k+')');
+			if(k=='wi') {
+				var i = parseInt(v,10);
+				if(i<200 && i>3){
+					this.data.Wi=parseInt(v, 10);
+				} else if(i<2100 && i>1900){
+					this.data.Wi=+new Date().getFullYear() - parseInt(v, 10);
+				} else if(i>19000000 && i<21000000){
+					var dw = ''+i;
+					dw = new Date(dw.substr(0,4), dw.substr(4,2)-1, dw.substr(6,2));
+					this.data.Wi = Math.floor((new Date()-dw) / 1000 / 60 / 60 / 24 / 365.25);
+				} else {
+					var dw = v.substr(0,10).split('-');
+					if(dw.length == 3 && dw[0].length == 4) {
+						dw = new Date(dw[0], dw[1]-1, dw[2]);
+						this.data.Wi = Math.floor((new Date()-dw) / 1000 / 60 / 60 / 24 / 365.25);
+					}
+				}
+			} else if(k=='pl') {
+				if(v=='30'||v=='kobieta'||v=='k'||v=='f') this.data.Pl = 'f';
+				else if(v=='20'||v=='mezczyzna'||v=='m') this.data.Pl = 'm';
+			} else if(k=='wo') {
+				var wos = ['dolnoslask','kujawsko-','lubelskie','lubuskie','lodzkie','malopolski','mazowiecki','opolskie','podkarpack','podlaskie','pomorskie','slaskie','swietokrzy','warminsko','wielkopols','zachodniop'];
+				var i = parseInt(v,10);
+				if((i>60 && i<80) || i == 55) {this.data.Wo = i;}
+				else if(ut.inArray(v, wos)>=0) {this.data.Wo = 61+ut.inArray(v, wos);}
+				else if(v == 'zagranica') {this.data.Wo=55;}
+			} else if(k=='ho') {
+				this.data.Ho = ut.trim12(v).split('.').splice(-3).join('.').toLowerCase();
+			} else if(k=='kr') {
+				this.data.Kr = ut.trim12(v).substr(0,2).toUpperCase();
+			} else if(k=='re') {
+				this.data.Re = ut.trim12(v).substr(0,8).toUpperCase();
+			} else if(k=='uu') {
+				if(v && v!='false') this.data.Uu = true;
+			}
+		};
+		this.getDataAvailable = function() {
+			return 	this.data.Pl!==null||
+					this.data.Wi!==null||
+					this.data.Wo!==null||
+					this.data.Kr!==null||
+					this.data.Re!==null||
+					this.data.Ho!==null;
+		};
+		this.getSignedIn = function() {
+			return this.data.Uu===true;
+		};
+		this.parseData = function(data) {
+			var hash_arr = data.split('/'), siteData = {};
+			for (var i = 0; i < hash_arr.length; i++) {
+				if(hash_arr[i].split('_').length==2) {
+					that.set(hash_arr[i].split('_')[0], hash_arr[i].split('_')[1]);
+				}
+			}
+		};
+	};
+
+	var extraData = function() {
+		var that = this;
+		this.enable_stats = false;
+		this.data = {
+			Wo: null,
+			Kr: null,
+			Re: null,
+			Os: null,
+			Ua: null,
+			Ct: null
+		};
+		this.set = function(k, v) {
+			if(v===null) return;
+			k=k.toLowerCase();
+			v=(''+v).toLowerCase();
+			ut.log(v,'extraData.tg.set('+k+')');
+			if(k=='wo') {
+				var wos = ['dolnoslask','kujawsko-','lubelskie','lubuskie','lodzkie','malopolski','mazowiecki','opolskie','podkarpack','podlaskie','pomorskie','slaskie','swietokrzy','warminsko','wielkopols','zachodniop'];
+				var i = parseInt(v,10);
+				if((i>60 && i<80) || i == 55) {this.data.Wo = i;}
+				else if(ut.inArray(v, wos)>=0) {this.data.Wo = 61+ut.inArray(v, wos);}
+				else if(v == 'zagranica') {this.data.Wo=55;}
+			} else if(k=='kr') {
+				this.data.Kr = ut.trim12(v).substr(0,2).toUpperCase();
+			} else if(k=='re') {
+				this.data.Re = ut.trim12(v).substr(0,8).toUpperCase();
+			} else if(k=='os') {
+				this.data.Os = ut.trim12(v).toUpperCase();
+			} else if(k=='ua') {
+				this.data.Ua = ut.trim12(v).toUpperCase();
+			} else if(k=='ct') {
+				this.data.Ct = ut.trim12(v).toUpperCase();
+			} else if(k=='isp') {
+				this.data.Isp = ut.trim12(v).toUpperCase();
+			}
+		};
+		this.getDataAvailable = function() {
+			return 	this.data.Wo!==null||
+					this.data.Kr!==null||
+					this.data.Re!==null||
+					this.data.Os!==null||
+					this.data.Ct!==null||
+					this.data.Ua!==null;
+		};
+		this.parseData = function(data, callback) {
+			var cbname = 'extraDataCached';
+			window[cbname] = function(d) {
+				if(typeof(d)=='object' && d !==null && d.status=='OK') {
+					if('Re' in d && d.Re !== null ) that.set('Re', d.Re);
+					if('Kr' in d && d.Kr !== null ) that.set('Kr', d.Kr);
+					if('Wo' in d && d.Wo !== null ) that.set('Wo', d.Wo);
+					if('Os' in d && d.Os !== null ) that.set('Os', d.Os);
+					if('Ua' in d && d.Ua !== null ) that.set('Ua', d.Ua);
+					if('Ct' in d && d.Ct !== null ) that.set('Ct', d.Ct);
+					if('Isp' in d && d.Isp !== null ) that.set('Isp', d.Isp);
+				}
+				callback();
+			};
+			(function(d,x, a) {var z=d.createElement(x);z.type='text/javascript';z.src=a;var s=d.getElementsByTagName(x)[0]; s.parentNode.insertBefore(z, s);})
+			(document, 'script', '//a.spolecznosci.net/geo_snet?cb='+cbname);
+		};
+	};
+
+	var localData = function(store) {
+		var that = this;
+		var kk = null;
+		var now = new Date();
+		var lastRefDate = null;
+
+		var hoWhitelist = ['fotka.com','devel.fotka.com','x.fotka.com'];
+
+		var new_data = false;
+
+		that.dataVersion = 0;
+		that.mainData = {
+			Pl: null,
+			Wi: null,
+			Wo: null,
+			Kr: null,
+			Re: null,
+			Ad: null,
+			Sw: null,
+			Os: null,
+			Ua: null,
+			Ct: null,
+			Isp: null
+		};
+		that.statiscticsData = {
+			refDate: null,
+			lastTransmission: null,
+			visits: {
+				Today: {},
+				currentWeek: {},
+				currentMonth: {},
+				Yesterday: {},
+				lastWeek: {},
+				lastMonth: {},
+				current: {}
+			},
+			accounts: {},
+			pv: {
+				net: 0
+			},
+			dynamic: {},
+		};
+
+		that.getCookieVal = function() {
+			var tgx_raw = store.getCookie('tgx'), tgx = {};
+			if(!tgx_raw) return {};
+			tgx_raw = tgx_raw.split('|');
+			for(var x=tgx_raw.length-1;x>=0;x--) {
+				var data = tgx_raw[x].split(':');
+				if(data.length==2) tgx[data[0]] = data[1];
+			}
+			return tgx;
+		};
+
+		var storedLocalMain = store.load('currentMain');
+		if(storedLocalMain) {
+			if('Pl' in storedLocalMain) that.mainData.Pl = storedLocalMain.Pl;
+			if('Wi' in storedLocalMain) that.mainData.Wi = storedLocalMain.Wi;
+			if('Wo' in storedLocalMain) that.mainData.Wo = storedLocalMain.Wo;
+			if('Kr' in storedLocalMain) that.mainData.Kr = storedLocalMain.Kr;
+			if('Re' in storedLocalMain) that.mainData.Re = storedLocalMain.Re;
+			if('Os' in storedLocalMain) that.mainData.Os = storedLocalMain.Os;
+			if('Ua' in storedLocalMain) that.mainData.Ua = storedLocalMain.Ua;
+			if('Ct' in storedLocalMain) that.mainData.Ct = storedLocalMain.Ct;
+			if('Isp' in storedLocalMain) that.mainData.Isp = storedLocalMain.Isp;
+		}
+		that.mainData.Ad = window.adblock;
+		that.mainData.Sw = window.screen.width;
+
+		var storedLocalStats = store.load('currentStats');
+		if(storedLocalStats) {
+			if('refDate' in storedLocalStats) that.statiscticsData.refDate = new Date(storedLocalStats.refDate);
+			if('lastTransmission' in storedLocalStats) that.statiscticsData.lastTransmission = new Date(storedLocalStats.lastTransmission);
+			if('visits' in storedLocalStats) that.statiscticsData.visits = storedLocalStats.visits;
+			if('accounts' in storedLocalStats) that.statiscticsData.accounts = storedLocalStats.accounts;
+			if('pv' in storedLocalStats) that.statiscticsData.pv = storedLocalStats.pv;
+			if('dynamic' in storedLocalStats) that.statiscticsData.dynamic = storedLocalStats.dynamic;
+		}
+
+		that.feed = function(dataStore) {
+			if(!dataStore.getDataAvailable()) {
+				ut.log('Called without ANY data!', 'Feeding');
+				return;
+			}
+
+			var account = !!(ut.inArray(dataStore.data.Ho, hoWhitelist) != -1 && dataStore.data.Uu === true);
+			if(that.statiscticsData.refDate===null) {
+				ut.log('New User', 'Feeding');
+				if('Pl' in dataStore.data) that.mainData.Pl = dataStore.data.Pl;
+				if('Wi' in dataStore.data) that.mainData.Wi = dataStore.data.Wi;
+				if('Wo' in dataStore.data) that.mainData.Wo = dataStore.data.Wo;
+				if('Kr' in dataStore.data) that.mainData.Kr = dataStore.data.Kr;
+				if('Re' in dataStore.data) that.mainData.Re = dataStore.data.Re;
+				if('Os' in dataStore.data) that.mainData.Os = dataStore.data.Os;
+				if('Ua' in dataStore.data) that.mainData.Ua = dataStore.data.Ua;
+				if('Ct' in dataStore.data) that.mainData.Ct = dataStore.data.Ct;
+				if('Isp' in dataStore.data) that.mainData.Isp = dataStore.data.Isp;
+				new_data = true;
+			} else {
+				ut.log('New data'+(account?' [UU]':'[Guest]'), 'Feeding');
+				for(var i in that.mainData) {
+					if(!Object.prototype.hasOwnProperty.call(that.mainData,i) || (that.mainData[i]==dataStore.data[i]) || dataStore.data[i] === null || !Object.prototype.hasOwnProperty.call(dataStore.data, i)) continue;
+					if(account) {
+						ut.log('New data for '+i+':'+dataStore.data[i], 'Feeding');
+						that.mainData[i]=dataStore.data[i];
+						new_data = true;
+					} else if(i=='Kr' || i=='Re'  || i=='Wo' || i=='Ua' || i=='Os' || i=='Ct' || i=='Isp') {
+						ut.log('New data for '+i+':'+dataStore.data[i]+' [Extra data]', 'Feeding');
+						if(that.mainData[i]!=dataStore.data[i]) {
+							that.mainData[i]=dataStore.data[i];
+							new_data = true;
+						}
+					} else if(that.mainData[i]===null) {
+						ut.log('New data for '+i+':'+dataStore.data[i]+' [Guess]', 'Feeding');
+						that.mainData[i]=dataStore.data[i];
+						new_data = true;
+					} else ut.log('New data for '+i+':'+dataStore.data[i]+' [Discarding]', 'Feeding');
+				}
+			}
+			if(dataStore.enable_stats) {
+				lastRefDate = that.statiscticsData.refDate;
+				if(account) that.statiscticsData.accounts[dataStore.data.Ho] = new Date();
+				that.feedStats(dataStore);
+			}
+			that.store();
+		};
+		that.feedStats = function(dataStore) {
+			var sd=that.statiscticsData, v=sd.visits, c=v.current;
+			ut.log('Rotate check', 'Stats');
+			if(sd.refDate!==null && (sd.refDate.getUTCDay() !== now.getUTCDay() || sd.refDate < now - 24*60*60*1000)) {ut.log('Rotating...', 'Stats');
+				var yesterday = new Date(); yesterday.setTime(yesterday.getTime()-86400000);
+				if(yesterday.toDateString()==sd.refDate.toDateString()) v.Yesterday = v.Today;
+				else v.Yesterday = {};
+
+				if(sd.refDate.getDate()!=now.getDate() || now - sd.refDate > 31*24*60*60*1000) {
+					if( (now.getDate()>0 && now.getDate()-1==sd.refDate.getDate()) || (now.getDate()==0 && sd.refDate.getDate()==11) ) v.lastMonth = v.currentMonth;
+					else v.lastMonth = {};
+					v.currentMonth = {};
+				}
+				v.currentWeek = {};
+				v.Today = {};
+			}
+			ut.log('Stats for '+dataStore.data.Ho, 'Feeding');
+			if(!(dataStore.data.Ho in c && (now-new Date(c[dataStore.data.Ho])) < 30*60*1000)) {/*New visit*/
+				v.Today[dataStore.data.Ho] = (dataStore.data.Ho in v.Today)?v.Today[dataStore.data.Ho]+1:1;
+				v.currentWeek[dataStore.data.Ho] = (dataStore.data.Ho in v.currentWeek)?v.currentWeek[dataStore.data.Ho]+1:1;
+				v.currentMonth[dataStore.data.Ho] = (dataStore.data.Ho in v.currentMonth)?v.currentMonth[dataStore.data.Ho]+1:1;
+				ut.log('New visit on '+dataStore.data.Ho+': '+v.Today[dataStore.data.Ho],'Visit');
+			}
+			if(!(dataStore.data.Ho in sd.dynamic)) sd.dynamic[dataStore.data.Ho] = {pv:0, last: new Date()};
+			if(sd.refDate!==null && sd.refDate < now - 1000) {
+				sd.dynamic[dataStore.data.Ho].last = new Date();
+				sd.dynamic[dataStore.data.Ho].pv++;
+				sd.pv.net++;
+			}
+			c[dataStore.data.Ho] = new Date();
+			sd.refDate = new Date();
+		};
+		that.getDynamic = function() {
+			return ut.JN.stringify(that.statiscticsData.dynamic);
+		};
+		that.getLastCall = function() {
+			return lastRefDate;
+		};
+		that.generateCookieVal = function() {
+			var c = ['v:1'];
+			for(var i in that.mainData) {
+				if(!Object.prototype.hasOwnProperty.call(that.mainData,i) || that.mainData[i] === null) continue;
+				c.push(i+':'+that.mainData[i]);
+			}
+            return c.join('|');
+		};
+        that.store = function () {
+            ut.log(that.dataVersion, 'Stored [DATA]');
+            ut.log(that.mainData, 'Stored [DATA]');
+            ut.log(that.statiscticsData, 'Stored [DATA]');
+            store.save(that.dataVersion, 'currentVersion');
+            store.save(that.mainData, 'currentMain');
+            store.save(that.statiscticsData, 'currentStats');
+
+            var d = new Date();
+            d.setTime(d.getTime() + (366*24*60*60*1000));
+            document.cookie = 'tgx='+encodeURIComponent(that.generateCookieVal())+';domain=.spolecznosci.net;path=/;expires=' + d.toUTCString();
+        };
+		that.transmissionPending = function() {
+			if(ut.debug) return true;
+			if(new_data) return true;
+			if(that.statiscticsData.lastTransmission===null) { this.transmissionSent(); return false; }
+			else if(now-that.statiscticsData.lastTransmission > 30*60*1000) return true;
+			else return false;
+		};
+		that.transmissionSent = function() {
+			that.statiscticsData.pv.net = 0;
+			that.statiscticsData.lastTransmission = now;
+			that.statiscticsData.dynamic = {};
+			that.store();
+			return true;
+		}
+	};
+
+	var cStore = function() {
+		var that = this;
+		var backend = null;
+		var ck = 'ÖY{C¤Nql1FèS(8¡Oc';
+		var cc = '!Spolecznosci.net~';
+		var cp = 'cs1_';
+
+		try {
+			localStorage.setItem('compatTest', cc);
+			localStorage.removeItem('compatTest');
+			backend = localStorage;
+		} catch(e) {}
+		if(backend===null) {
+			ut.log('NOT Available', 'LocalStorage');
+			backend = {
+				setItem: function(k,v) {
+                    var d = new Date();
+                    d.setTime(d.getTime() + (366*24*60*60*1000));
+					document.cookie = encodeURIComponent('lsc'+k)+"="+encodeURIComponent(v)+"; path=/; domain=.spolecznosci.net;expires=" + d.toUTCString();
+					return true;
+				},
+				getItem: function(k) {
+					var a=document.cookie.split('; ');
+					for(var i=0; i<a.length; i++){
+						var c = a[i].split('=');
+						if(ut.trim12(c[0]) == 'lsc'+ut.trim12(k)) return decodeURIComponent(c[1]);
+					}
+					return null;
+				},
+				removeItem: function(k) {
+					document.cookie = encodeURIComponent('lsc'+k)+"=; path=/; domain=.spolecznosci.net;expires=" + new Date(0).toUTCString();
+					return true;
+				},
+				clear: function() {
+					ut.log('localStorage.clear','TODO?');
+				},
+				length: 0
+			};
+		}
+		else {ut.log('Available', 'LocalStorage');}
+		that.save = function(data, type) {
+			if(!type) type = 'generic';
+			data = ut.JN.stringify(data)+cc;
+			data = encodeURIComponent(ut.RC4.encode(ck,data));
+			backend.setItem(cp+type, data);
+		};
+        that.remove = function(type) {
+            if(!type) type = 'generic';
+            backend.removeItem(cp+type);
+        };
+		that.load = function(type) {
+			if(!type) type = 'generic';
+			var e = backend.getItem(cp+type);
+			if(!e) return null;
+			var data = ut.RC4.decode(ck, decodeURIComponent(e));
+			if(!ut.endsWith(data, cc)) return null;
+			return ut.JN.parse(data.substr(0,data.length-(cc.length)));
+		};
+		that.getCookie = function(name) {
+			var v=document.cookie;
+			var s=v.indexOf(" "+name+"=");
+			if(s==-1) s=v.indexOf(name+"=");
+			if(s==-1) v=null;
+			else {
+				s=v.indexOf("=", s)+1;
+  				var c_end=v.indexOf(";", s);
+  				if(c_end==-1) c_end=v.length;
+				v=decodeURIComponent(v.substring(s,c_end));
+			}
+			return v;
+		}
+	};
+
+	siteData = new siteData();
+	siteData.parseData(window.location.search.substring(1));
+
+	localData = new localData(new cStore());
+	localData.feed(siteData);
+
+	extraData = new extraData();
+	extraData.parseData(localData, function() {
+		localData.feed(extraData);
+
+		if(localData.transmissionPending()) {
+			ut.log('Pending', 'Transmission');
+			var updString = [];
+			var lastCall = localData.getLastCall();
+			if(localData.mainData.Pl !==null) updString.push('Pl.'+localData.mainData.Pl);
+			if(localData.mainData.Wi !==null) updString.push('Wi.'+localData.mainData.Wi);
+			if(localData.mainData.Wo !==null) updString.push('Wo.'+localData.mainData.Wo);
+			if(localData.mainData.Kr !==null) updString.push('Kr.'+localData.mainData.Kr);
+			if(localData.mainData.Re !==null) updString.push('Re.'+localData.mainData.Re);
+			if(localData.mainData.Ad !==null) updString.push('Ad.'+localData.mainData.Ad);
+			if(localData.mainData.Sw !==null) updString.push('Sw.'+localData.mainData.Sw);
+			if(localData.mainData.Os !==null) updString.push('Os.'+localData.mainData.Os);
+			if(localData.mainData.Ua !==null) updString.push('Ua.'+localData.mainData.Ua);
+			if(localData.mainData.Ct !==null) updString.push('Ct.'+localData.mainData.Ct);
+			if(localData.mainData.Isp!==null) updString.push('Isp.'+localData.mainData.Isp);
+			if(localData.statiscticsData.lastTransmission!==null) updString.push('Lt.'+localData.statiscticsData.lastTransmission.getTime());
+			if(lastCall!==null) updString.push('Lc.'+lastCall.getTime());
+			if(localData.statiscticsData.pv.net!==null) updString.push('Pv.'+localData.statiscticsData.pv.net);
+			updString = updString.join('~');
+			updString = target_uri+'spolecznosci.net/ls.php?x='+encodeURIComponent(updString)+'&attr='+encodeURIComponent(localData.getDynamic());
+			if(ut.debug) updString += '&ncache=1';
+			if(null===ut.sendRequest('//'+updString, function(response){
+				ut.log('XHR Complete: '+response, 'Transmission');
+				if(response=='cached') {
+					ut.log('Too fast', 'Transmission');
+					return;
+				}
+				if(response=='done' || response=='OK' || response == 'old') {
+					localData.transmissionSent();
+					ut.log('Sent', 'Transmission');
+					return;
+				}
+				var response = response.split(';');
+				if(response.length==2) {
+					if(response[0]=='OK') {
+						localData.transmissionSent();
+						ut.log('Sent', 'Transmission');
+						return;
+					}
+				}
+				ut.log('Error', 'Transmission');
+			})) { /*no xhr*/
+				ut.log('XHR Failed!', 'Transmission');
+			}
+		}
+	});
+}());
+</script>Hello ad blocker! ;-) 
+ok
+</body></html>

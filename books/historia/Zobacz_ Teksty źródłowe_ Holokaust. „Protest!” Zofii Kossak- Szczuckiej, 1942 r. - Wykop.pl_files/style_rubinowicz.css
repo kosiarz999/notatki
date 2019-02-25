@@ -1,0 +1,39 @@
+BODY {
+	BACKGROUND: #faf3d3; MARGIN: 0px; COLOR: #000000
+}
+A:link {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	FONT-SIZE: 12px; COLOR: #000000; BORDER-BOTTOM: #000000 1px solid; TEXT-DECORATION: none
+}
+A {
+	TEXT-DECORATION: none
+}
+#top {
+	LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+#middle {
+	LEFT: 0px; POSITION: absolute; TOP: 162px
+}
+#bottom {
+	LEFT: 0px; POSITION: absolute; TOP: 324px
+}
+#log {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: normal; FILTER: alpha(opacity=70, style=0); LEFT: 150px; MARGIN-BOTTOM: 50px; PADDING-BOTTOM: 5px; WIDTH: 750px; PADDING-TOP: 5px; POSITION: absolute; TOP: 75px; BACKGROUND-COLOR: #f1e9c6; moz-opacity: 70%
+}
+.logbody {
+	BORDER-RIGHT: #aca27b 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #aca27b 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; MARGIN: 10px; FONT: 12px verdana, arial, helvetica, sans-serif; BORDER-LEFT: #aca27b 1px solid; PADDING-TOP: 5px; BORDER-BOTTOM: #aca27b 1px solid
+}
+.title {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 8px; PADDING-BOTTOM: 8px; MARGIN: 5px 0px; FONT: bold 14px verdana, arial, helvetica, sans-serif; COLOR: #5f4e42; PADDING-TOP: 8px; TEXT-ALIGN: center
+}
+#side {
+	BORDER-RIGHT: #5889a3 1px solid; BORDER-TOP: #5889a3 1px solid; FILTER: alpha(opacity=70, style=0); LEFT: 150px; FONT: 12px verdana, arial, helvetica, sans-serif; BORDER-LEFT: #5889a3 1px solid; WIDTH: 200px; BORDER-BOTTOM: #5889a3 1px solid; POSITION: absolute; TOP: 455px; BACKGROUND-COLOR: #c6dae5; moz-opacity: 70%
+}
+.sideheader {
+	PADDING-RIGHT: 3px; BORDER-TOP: #5889a3 1px solid; PADDING-LEFT: 3px; BACKGROUND: #a6c1cf; PADDING-BOTTOM: 3px; FONT: 10px verdana, arial, helvetica, sans-serif; COLOR: #124c6b; PADDING-TOP: 3px; BORDER-BOTTOM: #5889a3 1px solid; TEXT-ALIGN: center
+}

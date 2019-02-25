@@ -1,0 +1,1900 @@
+$(document).ready(
+        function() {
+
+$('.horizontal_scroller_mini').SetScroller({velocity: 60,
+                                direction: 'horizontal',
+                                startfrom: 'right',
+                                loop: 'infinite',
+                                movetype: 'linear',
+                                onmouseover: 'pause',
+                                onmouseout: 'play',
+                                onstartup: 'play',
+                                cursor: 'pointer'
+                        });
+
+
+        var win = $(window);
+                var ignoreScroll = false;
+                // Each time the user scrolls
+                win.scroll(function() {
+                if (ignoreScroll) return;
+                        //$('#Test').html($(document).height() - win.height()+' -> '+parseInt(win.scrollTop()+100));
+                        // End of the document reached?
+                        if ($(document).height() - win.height() < parseInt(win.scrollTop() + 100)) {
+
+                $('#loadingmore').show();
+                        ignoreScroll = true;
+                        getnextlist();
+                        setTimeout(function(){
+                        ignoreScroll = false;
+                                win.bind('scroll', '');
+                        }, 1000);
+                }
+                });
+        }
+);
+//show part hide
+        $(function() {
+        //like it
+        $('[LikeItBtn]').click(function() {
+        var id = ($(this).attr('id'));
+                var LikeItNum = parseInt(parseInt($(this).attr('LikeItNum')) + 1);
+                Likeit(id);
+                $('[data-id=Dig' + id + ']').html(LikeItNum).addClass('DigActive');
+                //$('#Dig'+id).html(LikeItNum);
+                //$('#Dig'+id).addClass('DigActive');
+        });
+                //click key
+                $(".visible-part").click(function(e){
+        var dataid = ($(this).attr('data-id'));
+                if ($('#hidden' + dataid).is(":visible")) {
+        $('#hidden' + dataid).fadeOut(100)
+        } else{
+        $('#hidden' + dataid).fadeIn(300);
+                //alert($('#container').height())
+        }
+        });
+        });
+        function detectmob(mobileUrl) {
+        if (navigator.userAgent.match(/Android/i)
+                || navigator.userAgent.match(/webOS/i)
+                || navigator.userAgent.match(/iPhone/i)
+                || navigator.userAgent.match(/iPad/i)
+                || navigator.userAgent.match(/iPod/i)
+                || navigator.userAgent.match(/BlackBerry/i)
+                || navigator.userAgent.match(/Windows Phone/i)
+                ){
+        //return true;
+        document.location.href = mobileUrl;
+        }
+        else {
+        return false;
+        }
+        }
+
+
+
+//zapisz info o cookie
+function setCookieInfo() {
+$.post('/ajax/setcookieinfo', { a:1  },
+        function(data) {
+        $('#showCookie').fadeOut(200);
+                $('#container').css({'margin-top' : '0px'});
+                if ($('.hellobar').length) { $('.hellobar').css({'margin-top' : '0px'}); }
+        if ($('.hellobar2').length) { $('.hellobar').css({'margin-top' : '0px'}); }
+        }
+);
+}
+
+
+
+
+
+function window_open(URL, name, width, height)
+{
+var left = (screen.width - width) / 2;
+        left = Math.round(left);
+        var top = (screen.height - height - 100) / 2;
+        top = Math.round(top);
+        name = window.open(URL, name, 'resizable=0, height=' + height + ', width=' + width + ', top=' + top + ', left=' + left);
+        name.moveTo(left, top);
+        name.focus();
+}
+
+function popup(URL, name, width, height)
+{
+var left = (screen.width - width) / 2;
+        left = Math.round(left);
+        var top = (screen.height - height - 100) / 2;
+        top = Math.round(top);
+        name = window.open(URL, name, 'resizable=1,scrollbars=1, height=' + height + ', width=' + width + ', top=' + top + ', left=' + left);
+        //name.moveTo(left, top);
+        name.focus();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function megaHoverOver(){
+
+$(this).find(".sub").stop().fadeTo('fast', 1).show();
+        //Calculate width of all ul's
+                (function($) {
+                jQuery.fn.calcSubWidth = function() {
+                rowWidth = 0;
+                        //Calculate row
+                        $(this).find("ul").each(function() {
+                rowWidth += $(this).width();
+                });
+                };
+                })(jQuery);
+                if ($(this).find(".row").length > 0) { //If row exists...
+        var biggestRow = 0;
+                //Calculate each row
+                $(this).find(".row").each(function() {
+        $(this).calcSubWidth();
+                //Find biggest row
+                if (rowWidth > biggestRow) {
+        biggestRow = rowWidth;
+        }
+        });
+                //Set width
+                $(this).find(".sub").css({'width' :biggestRow});
+                $(this).find(".row:last").css({'margin':'0'});
+        } else { //If row does not exist...
+
+        $(this).calcSubWidth();
+                //Set Width
+                $(this).find(".sub").css({'width' : rowWidth});
+        }
+        }
+
+        function megaHoverOut(){
+        $(this).find(".sub").stop().fadeTo('fast', 0, function() {
+        $(this).hide();
+        });
+        }
+
+
+        /*END HOVER___________________________________________*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//szukaj btn
+        function  search() {
+        $('#formularz_szukaj').submit();
+        }
+
+//szukaj btn
+        function  searchz() {
+        $('#formularz_szukajz').submit();
+        }
+
+
+
+
+
+
+//ustw sortowani
+        function  setSortby(wartosc, typ) {
+
+        $('#sortby').val(wartosc);
+                if (typ == 'z') {
+        searchz();
+        }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+        /*MENU_________________________________________________________________________*/
+        var timeout = 500;
+                var closetimer = 0;
+                var ddmenuitem = 0;
+                function jsddm_open()
+                {	jsddm_canceltimer();
+                        jsddm_close();
+                        ddmenuitem = $(this).find('ul').eq(0).css('visibility', 'visible'); }
+
+        function jsddm_close()
+        {	if (ddmenuitem) ddmenuitem.css('visibility', 'hidden'); }
+
+        function jsddm_timer()
+        {	closetimer = window.setTimeout(jsddm_close, timeout); }
+
+        function jsddm_canceltimer()
+        {	if (closetimer)
+        {	window.clearTimeout(closetimer);
+                closetimer = null; }}
+
+        $(document).ready(function()
+        {	$('#jsddm > li').bind('mouseover', jsddm_open);
+                $('#jsddm > li').bind('mouseout', jsddm_timer); });
+                document.onclick = jsddm_close;
+                /*END MENU_________________________________________________________________________*/
+
+
+
+
+
+                /*
+                 *  ShareBar - Creates a dynamic, vertical sharing bar to the left of a WordPress post and hides it if browser window is too small
+                 *  Copyright 2010 Monjurul Dolon, http://mdolon.com/
+                 *  Released under the MIT, BSD, and GPL Licenses.
+                 *  More information: http://devgrow.com/sharebar
+                 */
+                jQuery.fn.sharebar = function(options) {
+                var defaults = {horizontal: true, swidth: 65, minwidth: 1000, position: 'left', leftOffset: 20, rightOffset: 10};
+                        var opts = jQuery.extend(defaults, options); var o = jQuery.meta ? jQuery.extend({}, opts, jQueryjQuery.data()) : opts;
+                        var w = jQuery(window).width();
+                        var sharebar = jQuery('#sharebar');
+                        var sharebarx = jQuery('#sharebarx');
+                        var parent = jQuery(sharebar).parent().width();
+                        var start = sharebar_init();
+                        function sharebar_init(){
+                        jQuery(sharebar).css('width', o.swidth + 'px');
+                                if (o.position == 'left') jQuery(sharebar).css('marginLeft', (0 - o.swidth - o.leftOffset));
+                                else {
+                                jQuery(sharebar).css('marginLeft', (parent + o.rightOffset));
+                                }
+                        if (w < o.minwidth && o.horizontal) jQuery(sharebarx).slideDown();
+                                else jQuery(sharebar).fadeIn();
+                                jQuery.event.add(window, "scroll", sharebar_scroll);
+                                jQuery.event.add(window, "resize", sharebar_resize);
+                                if (jQuery("#sharebar").length != 0){
+                        return jQuery(sharebar).offset().top;
+                        }
+                        }
+                function sharebar_resize() {
+                var w = jQuery(window).width();
+                        if (w < o.minwidth){
+                jQuery(sharebar).fadeOut();
+                        if (o.horizontal) jQuery(sharebarx).slideDown();
+                } else{
+                jQuery(sharebar).fadeIn();
+                        if (o.horizontal) jQuery(sharebarx).slideUp();
+                }
+                }
+                function sharebar_scroll() {
+                var p = jQuery(window).scrollTop();
+                        var w = jQuery(window).width();
+                        jQuery(sharebar).css('position', ((p + 100) > start) ? 'fixed' : 'absolute');
+                        jQuery(sharebar).css('top', ((p + 100) > start) ? '100px' : '');
+                }
+
+                };
+                function sprintf()
+                {
+                if (!arguments || arguments.length < 1 || !RegExp)
+                {
+                return;
+                }
+                var str = arguments[0];
+                        var re = /([^%]*)%('.|0|\x20)?(-)?(\d+)?(\.\d+)?(%|b|c|d|u|f|o|s|x|X)(.*)/;
+                        var a = b = [], numSubstitutions = 0, numMatches = 0;
+                        while (a = re.exec(str))
+                {
+                var leftpart = a[1], pPad = a[2], pJustify = a[3], pMinLength = a[4];
+                        var pPrecision = a[5], pType = a[6], rightPart = a[7];
+                        numMatches++;
+                        if (pType == '%')
+                {
+                subst = '%';
+                }
+                else
+                {
+                numSubstitutions++;
+                        if (numSubstitutions >= arguments.length)
+                {
+                alert('Error! Not enough function arguments (' + (arguments.length - 1)
+                        + ', excluding the string)\n'
+                        + 'for the number of substitution parameters in string ('
+                        + numSubstitutions + ' so far).');
+                }
+                var param = arguments[numSubstitutions];
+                        var pad = '';
+                        if (pPad && pPad.substr(0, 1) == "'") pad = leftpart.substr(1, 1);
+                        else if (pPad) pad = pPad;
+                        var justifyRight = true;
+                        if (pJustify && pJustify === "-") justifyRight = false;
+                        var minLength = - 1;
+                        if (pMinLength) minLength = parseInt(pMinLength);
+                        var precision = - 1;
+                        if (pPrecision && pType == 'f')
+                        precision = parseInt(pPrecision.substring(1));
+                        var subst = param;
+                        switch (pType)
+                {
+
+                case 'b':
+                        subst = parseInt(param).toString(2);
+                        break;
+                        case 'c':
+                        subst = String.fromCharCode(parseInt(param));
+                        break;
+                        case 'd':
+                        subst = parseInt(param) ? parseInt(param) : 0;
+                        break;
+                        case 'u':
+                        subst = Math.abs(param);
+                        break;
+                        case 'f':
+                        subst = (precision > - 1)
+                        ? Math.round(parseFloat(param) * Math.pow(10, precision))
+                        / Math.pow(10, precision)
+                        : parseFloat(param);
+                        break;
+                        case 'o':
+                        subst = parseInt(param).toString(8);
+                        break;
+                        case 's':
+                        subst = param;
+                        break;
+                        case 'x':
+                        subst = ('' + parseInt(param).toString(16)).toLowerCase();
+                        break;
+                        case 'X':
+                        subst = ('' + parseInt(param).toString(16)).toUpperCase();
+                        break;
+                }
+                var padLeft = minLength - subst.toString().length;
+                        if (padLeft > 0)
+                {
+                var arrTmp = new Array(padLeft + 1);
+                        var padding = arrTmp.join(pad?pad:" ");
+                }
+                else
+                {
+                var padding = "";
+                }
+                }
+                str = leftpart + padding + subst + rightPart;
+                }
+                return str;
+                }
+
+//---------------------------------------------
+
+
+
+
+
+//male podmenu ze swiecami
+        function PodMenu()
+        {
+        if ($('#PodMenu').is(':visible'))
+        {
+        $('#PodMenu').fadeOut(400);
+        }
+        else {
+        $('#PodMenu').fadeIn(400);
+        }
+        }
+
+
+
+
+//pokaz / ukryj tersc do inof o swiecach
+        function showSwiecaInfo(nr)
+        {
+        showHide('info' + nr + '_tresc');
+        }
+
+
+
+
+
+//pokaz / ukryj div
+        function showHide(div)
+        {
+
+        if ($('#' + div))
+        {
+        if ($('#' + div).is(':visible'))
+        {
+        $('#' + div).fadeOut(400);
+        }
+        else {
+        $('#' + div).fadeIn(400);
+        }
+        }
+        }
+
+
+
+
+
+
+
+
+
+
+//dodaj wpis
+        function  sendKontakt(idcap, id_page) {
+        $('#KontaktKomunikat').html('Proszę czekać...');
+                $.post('/Strona/ajax/wyslijkontakt', {id_page: id_page, 'id_temat': $('#id_temat').val(), idcap: idcap, autor: $('#autor').val(), tytul: $('#tytul').val(), komentarz: $('#komentarz').val(), email: $('#email').val(), captcha: $('#captcha').val() },
+                        function(data) {
+                        if (data == 99) {
+                        $('#FormularzK').html('Dziękujemy wiadomość została wysłana');
+                        } else{
+
+                        if (data == 'reload'){
+                        location.reload();
+                        } else{
+                        $('#KontaktKomunikat').html(data);
+                        }
+
+
+                        }
+                        }
+                );
+        }
+
+
+
+
+
+
+        function sendMessage()
+        {
+        $('#Komunikat').html('proszę czekać...');
+                $.post('ajax/sendmessage', {  email: $('#email').val(), uwagi: $('#uwagi').val() },
+                        function(data)
+                        {
+                        if (data == 99)
+                        {
+                        $('#BoxMessage').html('Dziękujemy wiadomość została wysłana<br/><br/><br/><br/><br/><br/><br/>');
+                        } else{
+                        $('#Komunikat').html(data);
+                        }
+                        }
+                );
+        }
+
+
+
+
+        function sendZapytanieOfertowe()
+        {
+        $('#Komunikat').html('proszę czekać...');
+                $.post('ajax/sendzapytanieofertowe', { zgoda: $('#zgoda:checked').val(), imie: $('#imie').val(), nazwisko: $('#nazwisko').val(), telefon: $('#telefon').val(), miejscowosc: $('#miejscowosc').val(), email: $('#email').val(), rodzaj_pomiarow: $('#rodzaj_pomiarow').val(), miejsce_pomiarow: $('#miejsce_pomiarow').val() },
+                        function(data)
+                        {
+                        if (data == 99)
+                        {
+                        $('#BoxMessage').html('Dziękujemy wiadomość została wysłana<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>');
+                        } else{
+                        $('#Komunikat').html(data);
+                        }
+                        }
+                );
+        }
+
+
+
+
+
+
+
+
+
+
+//pobierz tresc boxu
+        function showBox(id_box, id_box_content, id_dzial, id_kategoria, limit, typ_boks, nr_strony, nr_zakladki) {
+
+        $('#BoxLoader' + id_box).fadeIn(200);
+                $.post('/Strona/ajax/showbox', {  id_box: id_box, id_box_content: id_box_content, id_dzial: id_dzial, id_kategoria: id_kategoria, limit: limit, nr_strony: nr_strony, typ_boks: typ_boks },
+                        function(data) {
+                        //nieaktywne wszystkie
+                        $('.zak' + id_box).removeClass('active');
+                                //aktywuj tylko wybrana
+                                $('#idz' + id_box + '_' + nr_zakladki).addClass('active');
+                                $('#BoxContent' + id_box).html(data);
+                                $('#BoxLoader' + id_box).hide();
+                        }
+
+                );
+        }
+
+
+
+
+
+        function sortDzial(id_dzial, typ) {
+
+        $.post('/Strona/ajax/sortdzial', {  typ: typ, id_dzial: id_dzial },
+                function(data) {
+                location.reload();
+                }
+
+        );
+        }
+
+
+
+
+//zaglosuj w sondzie
+        function voteSonda(id_pytanie)
+        {
+        id_odpowiedz = $("input[name='odpowiedz']:checked").val();
+                if (id_odpowiedz > 0) {
+        $.post('ajax/votesonda', {id_pytanie: id_pytanie, id_odpowiedz: id_odpowiedz },
+                function(data) {
+                $('#SondaBox').css("background-image", "url(/images/bg/sonda_wyniki.gif)");
+                        $('#Sonda').html(data);
+                }
+        );
+        } else{
+        alert('Proszę zaznaczyć odpowiedź')
+        }
+
+        }
+
+
+
+
+
+//dpiszz adres email dop newslettera
+        function add2Newsletter() {
+        $('#NewsletterKomunikat').html('Proszę czekać...');
+                $.post('/Strona/ajax/addtonewsletter', {email_newsletter: $('#email_newsletter').val(), imie_newsletter: $('#imie_newsletter').val(), tytul_adresowy: $('#tytul_adresowy').val(), giodo_content: $('#giodo_content').text(), ip: $('#ip').text(), giodo_newsletter: $('#giodo_newsletter:checked').val() },
+                        function(data) {
+                        if (data == '99') {
+                        window.location.href = '/newsletter-pch24-pl,3931,c.html';
+                        } else{
+                        $('#NewsletterKomunikat').fadeIn(200).html(data).delay(3000).fadeOut(200);
+                        }
+                        }
+                );
+                /*
+                 $.post('/Strona2014/ajax/addtonewsletter', {email_newsletter: $('#email_newsletter').val() },
+                 function(data) {
+                 if(data=='99') {
+                 window.location.href='/newsletter-pch24-pl,3931,c.html';
+                 }else{
+                 $('#NewsletterKomunikat').fadeIn(200).html(data).delay(3000).fadeOut(200);
+                 }
+                 }
+                 );
+                 */
+
+        }
+
+
+
+
+
+
+
+
+//dpiszz adres email dop newslettera z regulka giodo
+        function add2NewsletterGiodo() {
+        $('#NewsletterKomunikat').fadeIn().html('Proszę czekać...');
+                $.post('/Strona/ajax/addtonewslettergiodo', {email_newsletter: $('#email_newsletter').val(), imie_newsletter: $('#imie_newsletter').val(), tytul_adresowy: $('#tytul_adresowy').val(), giodo_newsletter: $('#giodo_newsletter:checked').val() },
+                        function(data) {
+                        if (data == '99') {
+                        window.location.href = '/newsletter-pch24-pl,3931,c.html';
+                        } else{
+                        $('#NewsletterKomunikat').fadeIn(200).html(data).delay(3000).fadeOut(200);
+                        }
+                        }
+                );
+        }
+
+
+
+//dpiszz adres email dop newslettera z regulka giodo
+        function add2newsletterbaner() {
+        $('#NewsletterKomunikat').fadeIn().html('Proszę czekać...');
+                if ($('#imie').val() != '' && $('#imie').val() != 'Imię' && $('#email').val() != '' && $('#email').val() != 'E-mail') {
+        if ($('#giodo_newsletter:checked').val() == 1) {
+        $.post('/Strona/ajax/addtonewsletterbaner', { imie_newsletter: $('#imie').val(), email_newsletter: $('#email').val(), giodo_content: $('#giodo_content').text(), ip: $('#ip').val(), tytul_adresowy: $('#tytul_adresowy').val(), giodo_newsletter: $('#giodo_newsletter:checked').val() },
+                function(data) {
+                if (data == '99') {
+                window.location.href = '/newsletter-pch24-pl,3931,c.html';
+                } else{
+                $('#NewsletterKomunikat').fadeIn(200).html(data).delay(3000).fadeOut(200);
+                }
+                }
+        );
+        } else{
+        $('#NewsletterKomunikat').fadeIn(200).html('Proszę wyrazić zgodę na przetwarzanie dancyh').delay(2000).fadeOut(200);
+                //alert('Proszę wyrazić zgodę na przetwarzanie dancyh');
+        }
+        } else{
+        $('#NewsletterKomunikat').fadeIn(200).html('Proszę wypełnić formularz').delay(2000).fadeOut(200);
+                //alert('Proszę wypełnić formularz');
+        }
+
+        }
+
+
+
+
+//dopisz adres email do NEWSLETTERA z poziomu popup w informacjach z regulka giodo
+        function add2newsletterinfopopup() {
+        $('#NewsletterKomunikat').fadeIn().html('Proszę czekać...');
+                if ($('#imie').val() != '' && $('#imie').val() != 'Imię' && $('#email').val() != '' && $('#email').val() != 'E-mail') {
+        if ($('#giodo_newsletter:checked').val() == 1) {
+        $.post('/Strona/ajax/addtonewsletterinfopopup', { imie_newsletter: $('#imie').val(), nazwisko_newsletter: $('#nazwisko').val(), email_newsletter: $('#email').val(), giodo_content: $('#giodo_content').text(), ip: $('#ip').val(), tytul_adresowy: $('#tytul_adresowy').val(), giodo_newsletter: $('#giodo_newsletter:checked').val() },
+                function(data) {
+                if (data == '99') {
+                window.location.href = '/newsletter-pch24-pl,3931,c.html';
+                } else{
+                $('#NewsletterKomunikat').fadeIn(200).html(data).delay(3000).fadeOut(200);
+                }
+                }
+        );
+        } else{
+        $('#NewsletterKomunikat').fadeIn(200).html('Proszę wyrazić zgodę na przetwarzanie dancyh').delay(2000).fadeOut(200);
+                //alert('Proszę wyrazić zgodę na przetwarzanie dancyh');
+        }
+        } else{
+        $('#NewsletterKomunikat').fadeIn(200).html('Proszę wypełnić formularz').delay(2000).fadeOut(200);
+                //alert('Proszę wypełnić formularz');
+        }
+
+        }
+
+
+
+
+
+
+
+
+//wylacz popup
+        function closeandsavePopup() {
+
+        if ($('#wylacz_popup:checked').val() == 1) {
+        $('#NewsletterKomunikat').html('Proszę czekać...');
+                $.post('/Strona/ajax/setpopupoff', { },
+                        function(data) {
+                        parent.$.fancybox.close();
+                        }
+                );
+        } else{
+        parent.$.fancybox.close();
+        }
+
+
+        }
+
+
+//dpiszz adres email dop newslettera zx popupa
+        function add2NewsletterPopup(ver) {
+        $('#NewsletterKomunikat').html('Proszę czekać...');
+                $.post('/Strona/ajax/addtonewsletterpopup', { wylacz_popup: $('#wylacz_popup:checked').val(), giodo_newsletter: $('#giodo_newsletter:checked').val(),
+                        imie_newsletter: $('#imie_newsletter').val(), nazwisko_newsletter: $('#nazwisko_newsletter').val(),
+                        email_newsletter: $('#email_newsletter').val(), kodpocztowy_newsletter: $('#kodpocztowy_newsletter').val() },
+                        function(data) {
+                        if (data == '99') {
+                        //$('#NewsletterKomunikat').html('Dziękujemy.');
+                        //parent.$.fancybox.close();
+                        //window.location.href='/newsletter-pch24-pl,3931,c.html';
+
+                        if (ver == 2) {
+                        window.parent.location = '/newsletter-pch24-pl,32729,c.html';
+                        } else{
+                        //window.parent.location='/newsletter-pch24-pl,3931,c.html';//standard
+                        window.parent.location = '/newsletter-pch24-kod-epch24,34443,c.html'; //+kod epch
+                        }
+
+                        /*
+                         $('#container').css("background-image", "url(http://www.pch24.pl/images/popup/newsletter_bg2014_ok.jpg)");
+                         $('#BtnBoxOff').show();
+                         $('#BtnBox').hide();
+                         $('#NewsletterKomunikat').html('');
+                         $('#imie_newsletter').val('');
+                         $('#email_newsletter').val('');
+                         
+                         */
+                        } else{
+                        $('#NewsletterKomunikat').fadeIn(200).html(data);
+                        }
+                        }
+                );
+        }
+
+
+
+
+//zazanzceie giogo
+        function popupGiodo() {
+        if ($('#giodo_newsletter:checked').val() == 1) {
+        $('#BtnBoxOff').hide();
+                $('#BtnBox').show();
+        } else{
+        $('#BtnBoxOff').show();
+                $('#BtnBox').hide();
+        }
+        }
+
+
+
+
+//wyswietl galerie w tresci
+        function  getGaleria(id) {
+        if ($('#galeria').length != 0){
+
+        $.post('ajax/galeria', {id_page: id },
+                function(data) {
+                $('#galeria').html(data).fadeIn(200);
+                }
+        );
+        }
+        }
+
+
+
+
+
+//wyswietl formularz kontakt w tresci
+        function  getKontakt(id) {
+
+        if ($('#kontakt').length != 0){
+        $.post('/Strona/ajax/kontakt', {id_page: id },
+                function(data) {
+                $('#kontakt').html(data).fadeIn(200);
+                }
+        );
+        }
+        }
+
+//wyswietl formularz napisz do nas  w tresci
+        function  sendNapszDoNasz(id) {
+
+        if ($('#temat').val() != '' && $('#tresc').val() != '' && $('#podpis').val() != '' && $('#email').val() != '' && $('#captcha').val() != '') {
+        $('#formularz_napisz').submit();
+        } else{
+        alert('Proszę wypełnić formularz');
+        }
+
+        }
+
+
+
+
+
+
+//aktualizuj stat po wyswietlenu informacji
+        function  updateStat(id)
+        {
+
+        $.post('ajax/updatestat', {id_page: id },
+                function(data) {
+
+                }
+        );
+        }
+
+
+
+
+
+//przejdz do url
+        function  goToUrl(url) {
+
+        window.location.href = url;
+                return false;
+        }
+
+
+
+
+
+
+//wyslij komentarz
+        function  wyslijKomentarz(id)
+        {
+        $('#KomunikatKomentarz').html('Proszę czekać...');
+                $('#imie_powiadom').val($('#nick').val());
+                $.post('/Strona/ajax/wyslijkomentarz', {id_page: id, nick: $('#nick').val(), tresc: $('#tresc').val() },
+                        function(data) {
+                        if (data == 99) {
+                        $('.KForm').html('<b>Dziękujemy!<br/>Komentarz został przesłany do moderatora. Jeśli spełnia warunki regulaminu, wkrótce pojawi się na stronie.</b>');
+                                $('#PowiadomEmail').show(200);
+                        } else{
+                        $('#KomunikatKomentarz').html(data);
+                        }
+
+                        }
+                );
+        }
+
+
+
+
+//wyslij powiadomienia o komentarzach
+        function  wyslijPowiadomienia(id) {
+        $('#KomunikatPowiadomieniaKomentarz').html('Proszę czekać...');
+                $.post('/Strona/ajax/wyslijpowiadomieniakomentarz', {id_page: id, imie: $('#imie_powiadom').val(), email: $('#email_powiadom').val(), giodo1: $('#giodo1:checked').val(), giodo2: $('#giodo2:checked').val() },
+                        function(data) {
+                        $('#Komentarze').hide();
+                                if (data == 99) {
+                        $('#PowiadomEmail').html('<b>Dziękujemy!<br/>Twój adres e-mail został dodany do grupy osób uczestniczących w tej dyskusji. Otrzymasz wiadomość e-mail, gdy pojawi się nowy komentarz do artykułu.</b>');
+                        } else{
+                        $('#KomunikatPowiadomieniaKomentarz').html(data);
+                        }
+
+                        }
+                );
+        }
+
+
+
+
+
+
+
+
+
+//pogoda - pokaz box z miastami - zmien miasto
+        function  showAllCities()
+        {
+        $('#BoxZmienMiasto').fadeIn(300);
+        }
+
+
+
+//pogoda - ukryj box z miastami
+        function  hideAllCities()
+        {
+        $('#BoxZmienMiasto').fadeOut(200);
+        }
+
+
+        function  showAllCitiesTop()
+        {
+        $('#BoxZmienMiastoTop').fadeIn(300);
+        }
+
+
+//pogoda - ukryj box z miastami
+        function  hideAllCitiesTop()
+        {
+        $('#BoxZmienMiastoTop').fadeOut(200);
+        }
+
+
+//archiwum - wybierz date
+        function  goToDate()
+        {
+        url = $('#rok').val() + '-' + sprintf("%02d", $('#miesiac').val()) + '-' + sprintf("%02d", $('#dzien').val());
+                window.location.href = '?q_date=' + url;
+                return false;
+        }
+
+
+
+
+
+
+
+
+
+
+
+//***************************WESPRZYJ*************
+//weszprzyj simple
+        function platnosci_home(typ) {
+
+        if ($('#kwotaw').val() != 'kwota:' && $('#kwotaw').val() != '' && $('#emailw').val() != 'adres e-mail:' && $('#emailw').val() != '') {
+
+        //$('#BtnWesprzyjAkcjaSimple').html('Proszę czekać...');
+
+        $.post('/ajax/wesprzyjsimple', { typ: typ, kwota: $('#kwotaw').val(), email: $('#emailw').val() },
+                function(data) {
+
+                $('#id-w').val(data.id);
+                        $('#crc-w').val(data.crc);
+                        $('#md5sum-w').val(data.md5sum);
+                        $('#payformw').submit();
+                }, "json"
+                );
+        } else{
+        alert('Proszę wypełnić formularz');
+        }
+
+        }
+
+
+
+//wypelnij kwote z głównej
+        /*
+         function  platnosci_home() {
+         
+         if(parseInt($('#kwota').val())>0) {
+         $('#form_wesprzyj').submit()
+         }else{
+         alert('Proszę wpisać kwotę');
+         }
+         
+         }
+         */
+
+
+
+//wypelnij kwote
+        function  platnosci1()
+        {
+        if ($('#imie').val() != '' && $('#nazwisko').val() != '' && $('#kwota').val() > 0) {
+
+        if ($('#ok:checked').val() == 1){
+        $('#form_platnosc').submit()
+        } else{
+        alert('Prosimy o wyrażenie zgody na przetwarzanie danych');
+        }
+
+
+
+        } else{
+        alert('Proszę wypełnić formularz');
+        }
+
+        }
+
+
+//***************************END WESPRZYJ*************
+
+
+
+
+
+
+
+
+        /**
+         *
+         * temat ddnia slider
+         *
+         */
+        numer_td_slider = 1;
+                function showTematDnia(nr, bullet = "bullett") { 
+                //zeruj zegar
+                LiczSekundyTematDnia = 0;
+                        if (nr == 0) {
+                if (numer_td_slider > 4) {numer_td_slider = 0; }
+                nr = numer_td_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_td_slider = nr;
+                        //off
+
+                        $('.tematdnia').hide()
+                        //on
+                        $('#tematdnia' + nr).fadeIn(400);
+                        //off
+                        $(".btnTematDnia").attr('src', '/images/2016/' + bullet + '_off.png');
+                        //on
+                        $("#btnTematDnia" + nr).attr('src', '/images/2016/' + bullet + '_on.png');
+                }
+
+
+
+        /**
+         *
+         * wiadomosci slider
+         *
+         */
+        numer_wiadomosc_slider = 1;
+                function showWiadomosc(nr, bullet = 'bullet') {
+                //zeruj zegar
+                LiczSekundyWiadomosci = 0;
+                        if (nr == 0) {
+                if (numer_wiadomosc_slider > 4) {numer_wiadomosc_slider = 0; }
+                nr = numer_wiadomosc_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_wiadomosc_slider = nr;
+                        //off
+                        $('.wiadomoscislider').hide();
+                        //on
+                        $('#wiadomoscslider' + nr).fadeIn(400);
+                        //off
+                        $(".btnWiadomosc").attr('src', '/images/2016/' + bullet + '_off.png');
+                        //on
+                        $("#btnWiadomosc" + nr).attr('src', '/images/2016/' + bullet + '_on.png');
+                }
+
+
+
+
+
+        /**
+         *
+         * koment slider
+         *
+         */
+        numer_koment_slider = 1;
+                function showKomentSlider(nr, bullet = 'bullet') {
+                //zeruj zegar
+                LiczSekundyKomentarze = 0;
+                        if (nr == 0) {
+                if (numer_koment_slider > 4) {numer_koment_slider = 0; }
+                nr = numer_koment_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_koment_slider = nr;
+                        //off
+                        $('.komentslider').hide();
+                        //on
+                        $('#komentslider' + nr).fadeIn(400);
+                        //off
+                        $(".btnKoment").attr('src', '/images/2016/' + bullet + '_off.png');
+                        //on
+                        $("#btnKoment" + nr).attr('src', '/images/2016/' + bullet + '_on.png');
+                }
+
+
+
+
+
+
+
+
+
+
+
+        /**
+         *
+         * PCh slider
+         *
+         */
+        numer_pch_slider = 1;
+                function showPch(nr) {
+                //zeruj zegar
+                LiczSekundyPch = 0;
+                        if (nr == 0) {
+                if (numer_pch_slider > 4) {numer_pch_slider = 0; }
+                nr = numer_pch_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_pch_slider = nr;
+                        //off
+                        $('.pchslider').hide()
+                        //on
+                        $('#pchslider' + nr).fadeIn(400);
+                        //btn
+
+                        //off
+                        $(".btnPch").attr('src', '/images/bullet_off.png');
+                        //on
+                        $("#btnPch" + nr).attr('src', '/images/bullet_on.png');
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+        /**
+         *
+         * ksiegarnia slider
+         *
+         */
+        numer_ksiegarnia_slider = 1;
+                function showKsiegarnia(nr) {
+                //zeruj zegar
+                LiczSekundyKsiegarnia = 0;
+                        if (nr == 0) {
+                if (numer_ksiegarnia_slider > 2) {numer_ksiegarnia_slider = 0; }
+                nr = numer_ksiegarnia_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_ksiegarnia_slider = nr;
+                        //off
+                        $('.ksiegarniaslider').hide()
+                        //on
+                        $('#ksiegarniaslider' + nr).fadeIn(400);
+                        //btn
+
+                        //off
+                        $(".btnKsiegarnia").attr('src', '/images/SuperBaner/2013/off.png');
+                        //on
+                        $("#btnKsiegarnia" + nr).attr('src', '/images/SuperBaner/2013/on.png');
+                }
+
+
+
+
+
+
+
+
+
+
+
+        /**
+         *
+         * memy slider
+         *
+         */
+        numer_memy_slider = 1;
+                function showMemy(nr) {
+                //zeruj zegar
+                LiczSekundyMemy = 0;
+                        if (nr == 0) {
+                if (numer_memy_slider > 2) {numer_memy_slider = 0; }
+                nr = numer_memy_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_memy_slider = nr;
+                        //off
+                        $('.memyslider').hide()
+                        //on
+                        $('#memyslider' + nr).fadeIn(400);
+                        //off
+                        $(".btnMemy").attr('src', '/images/SuperBaner/2013/off.png');
+                        //on
+                        $("#btnMemy" + nr).attr('src', '/images/SuperBaner/2013/on.png');
+                }
+
+
+
+
+
+        /**
+         *
+         * waluty slider
+         *
+         */
+        numer_waluty_slider = 1;
+                function showWaluta(nr) {
+
+                //zeruj zegar
+                LiczSekundyWaluty = 0;
+                        if (nr == 0) {
+                if (numer_waluty_slider > 2) {numer_waluty_slider = 0; }
+                nr = numer_waluty_slider + 1;
+                }
+
+                //uaktualnij nr aktywnego
+                numer_waluty_slider = nr;
+                        //off
+                        $('.walutaslider').fadeOut(100)
+                        //on
+                        $('#walutaslider' + nr).fadeIn(400);
+                }
+
+
+
+
+
+        /**
+         *
+         * zdjecie dnia
+         *
+         */
+        function showPhoto(nr) {
+
+        //off
+        $('.zdjeciednia').fadeOut(100)
+                //on
+                $('#zdjeciednia' + nr).fadeIn(400);
+                //btn
+
+                //off
+                $(".btnPhoto").attr('src', '/images/SuperBaner/2013/off.png');
+                //on
+                $("#btnPhoto" + nr).attr('src', '/images/SuperBaner/2013/on.png');
+        }
+
+
+
+
+
+
+
+        /**
+         *
+         * kontrola liczby znaków komentarzu
+         *
+         */
+        function textCounter(field, countfield, maxlimit)
+        {
+        if ($('#' + field).val().length > maxlimit)
+        { // if too long...trim it!
+        valok = $('#' + field).val().substring(0, maxlimit);
+                $('#' + field).val(valok);
+        } else
+        {
+        $('#' + countfield).text('Pozostało znaków: ' + (maxlimit - $('#' + field).val().length));
+        }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////waluty TOP
+        var LiczSekundyWaluty = 0;
+                function SekundyWaluty() {
+
+                var tSB = setTimeout("SekundyWaluty()", 1000);
+                        LiczSekundyWaluty++;
+                        //slider waluty
+                        if (LiczSekundyWaluty > 4) {
+                showWaluta(0);
+                }
+                }
+//---------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+//reszta komentarzy
+        function showmorecomments(id) {
+
+        $('#morecomments').html('Proszę czekać...');
+                $.post('/ajax/showmorecomments', { id: id },
+                        function(data) {
+                        //$(morenewsBoxName).html(data);
+                        $('#morecomments').replaceWith(data);
+                        }
+                );
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//wyszukiwarka
+        function setKeyupFiled(ID, classname, wzorzec_txt) {
+        var wartosc = '';
+                objID = $('#' + ID);
+                if (objID.val() == wzorzec_txt) {
+        setInputClass(ID, classname, classname + '_off');
+        } else{
+        setInputClass(ID, classname + '_off', classname);
+        }
+
+        }
+
+
+
+
+        function setInputClass(ID, remove_classname, add_classname) {
+//alert(remove_classname+' '+add_classname)
+        $('#' + ID).removeClass(remove_classname).addClass(add_classname)
+        }
+
+
+
+
+//wyszukiwarka
+        function setClickField(ID, wzorzec_txt) {
+        var wartosc = '';
+                objID = $('#' + ID);
+                //dla pustego wrtoc domyslne
+                if (objID.val() == wzorzec_txt) {
+        objID.val('');
+        }
+
+        }
+
+
+//wyszukiwarka
+        function setBlurField(ID, classname, wzorzec_txt) {
+        var wartosc = '';
+                objID = $('#' + ID);
+                //dla pustego wrtoc domyslne
+                if (objID.val() == '') {
+        objID.val(wzorzec_txt);
+                setInputClass(ID, classname, classname + '_off');
+        }
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//--prenumerata--
+        function getKoszt() {
+
+        if ($('#id_kraj').val() > 0) {
+
+        $('#koszt_pl').val(Koszt[$('#id_kraj').val()]['koszt_pl']);
+                $('#DivKoszt').html('<b>' + Koszt[$('#id_kraj').val()]['koszt_waluta'] + ' ' + Koszt[$('#id_kraj').val()]['skrot'] + '</b> (' + Koszt[$('#id_kraj').val()]['koszt_pl'] + ' zł)');
+        } else{
+        $('DivKoszt').html('');
+        }
+
+
+        }
+//-----------------------
+
+
+
+
+
+
+//--prenumerata po rejonach--
+        function getKosztRejon() {
+
+        if ($('#id_rejon').val() > 0) {
+
+        $('#koszt_pl').val(Koszt[$('#id_rejon').val()]['koszt_pl']);
+                $('#DivKoszt').html('<b>' + Koszt[$('#id_rejon').val()]['koszt_waluta'] + ' ' + Koszt[$('#id_rejon').val()]['skrot'] + '</b> (' + Koszt[$('#id_rejon').val()]['koszt_pl'] + ' zł)');
+        } else{
+        $('DivKoszt').html('');
+        }
+
+
+
+        //pobierz liste panstw
+        var theobj = eval ('document.getElementById("id_kraj")');
+                theobj.innerHTML = '';
+                theobj.options[0] = new Option('', '');
+                if ($('#id_rejon').val() == 1) {
+        if (Panstwa1.length - 1 > 0) {
+        for (i = 0; i < Panstwa1.length - 1; i++) {
+        id = Panstwa1[i]['id']; nazwa = Panstwa1[i]['nazwa'];
+                theobj.options[i + 1] = new Option(nazwa, id);
+        }
+        }
+        }
+
+        if ($('#id_rejon').val() == 2) {
+        if (Panstwa2.length - 1 > 0) {
+        for (i = 0; i < Panstwa2.length - 1; i++) {
+        id = Panstwa2[i]['id']; nazwa = Panstwa2[i]['nazwa'];
+                theobj.options[i + 1] = new Option(nazwa, id);
+        }
+        }
+        }
+
+        if ($('#id_rejon').val() == 3) {
+        if (Panstwa3.length - 1 > 0) {
+        for (i = 0; i < Panstwa3.length - 1; i++) {
+        id = Panstwa3[i]['id']; nazwa = Panstwa3[i]['nazwa'];
+                theobj.options[i + 1] = new Option(nazwa, id);
+        }
+        }
+        }
+
+        if ($('#id_rejon').val() == 4) {
+        if (Panstwa4.length - 1 > 0) {
+        for (i = 0; i < Panstwa4.length - 1; i++) {
+        id = Panstwa4[i]['id']; nazwa = Panstwa4[i]['nazwa'];
+                theobj.options[i + 1] = new Option(nazwa, id);
+        }
+        }
+        }
+        }
+//-----------------------
+
+
+
+
+
+
+
+
+//----
+        function platnosci_z_submit() {
+        err = 0;
+                komunikat = 'proszę wypełnić formularz';
+                if ($('#koszt_pl').val() == '') { err = 1; komunikat = 'Błąd 009 - proszę spróbować za kilka minut'; }
+
+        if ($('#id_kraj').val() == '') { err = 1; komunikat = 'Proszę wybrać kraj'; }
+
+        if ($('#imie').val() == '' || $('#nazwisko').val() == '') { err = 1; }
+        if ($('#email_z').val() == '') { err = 1; }
+        if ($('#kod_pocztowy').val() == '') { err = 1; }
+        if ($('#miejscowosc').val() == '') { err = 1; }
+        if ($('#ulica').val() == '') { err = 1; }
+        if ($('#telefon').val() == '') { err = 1; }
+
+
+
+
+
+        if ($('#ok:checked').val() != 1) {
+        err = 1;
+                komunikat = 'Prosimy o wyrażenie zgody na przetwarzanie danych';
+        }
+
+
+
+        if (err == 0)
+        {
+        $('#formularz').submit()
+        } else{
+        alert(komunikat);
+        }
+        }
+
+//-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+//----
+        function platnosci_pl_submit() {
+        err = 0;
+                komunikat = 'proszę wypełnić formularz';
+//jesli prezent
+                if ($('#dane_prezent').css('display') == 'block')
+        {
+        if ($('#prezent_imie').val() == '' || $('#prezent_nazwisko').val() == '' || $('#prezent_kod_pocztowy').val() == '' || $('#prezent_miejscowosc').val() == '' || $('#prezent_ulica').val() == '') { err = 1; komunikat = 'proszę wypełnić dane osoby do prezentu'; }
+        }
+
+
+// if(SetPlatnosc!=1) { err=1; komunikat='proszę wybrać sposób zapłaty'; }
+
+        if ($('#imie').val() == '' || $('#nazwisko').val() == '') { err = 1; }
+        if ($('#email_pl').val() == '') { err = 2; }
+        if ($('#kod_pocztowy').val() == '') { err = 3; }
+        if ($('#miejscowosc').val() == '') { err = 4; }
+        if ($('#ulica').val() == '') { err = 5; }
+        if ($('#telefon').val() == '') { err = 6; }
+
+
+        if ($('#ok:checked').val() != 1) {
+        err = 1;
+                komunikat = 'Prosimy o wyrażenie zgody na przetwarzanie danych';
+        }
+
+
+
+        if (err == 0)
+        {
+        $('#formularz').submit()
+        } else{
+        alert(komunikat);
+        }
+
+        }
+
+//-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//weszprzyj simple
+        function WesprzyjSimple(typ) {
+
+        if ($('#kwota').val() != 'kwota:' && $('#kwota').val() != '' && $('#email').val() != 'e-mail:' && $('#email').val() != '') {
+
+        $('#BtnWesprzyjAkcjaSimple').html('Proszę czekać...');
+                $.post('/ajax/wesprzyjsimple', { typ: typ, kwota: $('#kwota').val(), email: $('#email').val() },
+                        function(data) {
+                        $('#id').val(data.id);
+                                $('#crc').val(data.crc);
+                                $('#md5sum').val(data.md5sum);
+                                $('#payform').submit();
+                        }, "json"
+                        );
+        } else{
+        alert('Proszę wypełnić formularz');
+        }
+
+        }
+
+
+
+//likeit
+        function Likeit(id) {
+
+        $.post('/ajax/addlikeit', { id: id   },
+                function(data) {
+
+                }
+        );
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//box wesprzyj*****************************************************************
+
+
+        $(function(){
+        setBtnWesprzyjSimple();
+        });
+                function setBtnWesprzyjSimple() {
+                $('#BtnWesprzyjSimple').click(function() {
+                ShowHideWeszprzyjSimple(1)
+                });
+                }
+
+
+        function ShowHideWeszprzyjSimple(stan) {
+        if (stan == 1) {
+        $('#WeszprzyjSimpleBox').css("margin-left", WesprzyjBoxStartPos + "px");
+                $('#WeszprzyjSimpleBox').show();
+                //$('#WeszprzyjSimpleBox').show("slide", { direction: "right" });
+                //$("#WeszprzyjSimpleBox").animate({left:200, opacity:"show"}, 1500);
+                //$("#WeszprzyjSimpleBox").animate({ "width": "+=200px" }, "slow" );
+                //$("#WeszprzyjSimpleBox").animate({left: 500}, 1500);
+                $("#WeszprzyjSimpleBox").animate({"margin-left": "+=" + WesprzyjBoxSize + "px"}, 1000);
+                //$('#BtnWesprzyjSimple').unbind('mouseover');
+                $('#BtnWesprzyjSimple').unbind('click');
+                $('#BtnWesprzyjSimple').click(function() { ShowHideWeszprzyjSimple(0) });
+        } else{
+        $("#WeszprzyjSimpleBox").animate({"margin-left": "-=" + WesprzyjBoxSize + "px"}, 1000);
+                $('#WesprzyjMoreInfo').hide()
+
+                //$("#WeszprzyjSimpleBox").animate({ "width": "-=200px" }, "slow" );
+                //$('#WeszprzyjSimpleBox').hide('200', function() {
+                $('#BtnWesprzyjSimple').unbind('click');
+                setBtnWesprzyjSimple();
+                //$('#WeszprzyjSimpleBox').css("margin-left", "240px");
+                //});
+
+        }
+
+        }
+//*****************************************************************************
+
+
+
+
+
+
+        function doBounce(element, times, distance, speed, type) {
+        for (i = 0; i < times; i++) {
+        distance = parseInt(distance) - (i * 2);
+                if (type == 'tb') {
+        element.animate({marginTop: '-=' + distance}, speed).animate({marginTop: '+=' + distance}, speed);
+        } else{
+        element.animate({marginLeft: '-=' + distance}, speed).animate({marginLeft: '+=' + distance}, speed);
+        }
+        }
+        }
+
+
+
+
+
+
+
+        function capitalizeFirstLetter(IDF) {
+        string = $('#' + IDF).val();
+                txt = string.charAt(0).toUpperCase() + string.slice(1);
+                $('#' + IDF).val(txt);
+        }
+
+
+
+
+
+
+
+
+
+
+
+        function hellobar(status) {
+
+        if (status == 1) {
+        $('.hellobar').show();
+                $('.hellobar').css({top: 0 + 'px'});
+                //doBounce($('.hellobar'), 3, '10px', 200, 'tb');
+                $('#container').css({top: 45 + 'px'});
+                $('#helobarshowbtn').hide();
+                setTimeout("ShakeHellobarBtn()", 2000);
+        } else{
+        //$('.hellobar').hide();
+        $('.hellobar').css({top: - 40 + 'px'});
+                $('#container').css({top: 5 + 'px'});
+                $('#helobarshowbtn').show();
+                clearTimeout(loophellobar);
+        }
+        }
+
+
+        var hellobar2status = 1;
+                function hellobar2(status) {
+
+
+                if (status == 1 || (status == - 1 && hellobar2status == 0)) {
+
+                $('.hellobar2').show();
+                        $('.hellobar2').css({top: 0 + 'px'});
+                        $('#container').css({top: 119 + 'px'});
+                        hellobar2status = 1;
+                        status = ''; //nie wykonuj ponizej
+                }
+
+                if (status == 2 || (status == - 1 && hellobar2status == 1)) {
+                //$('.hellobar2').hide();
+                $('.hellobar2').css({top: - 120 + 'px'});
+                        $('#container').css({top: 5 + 'px'});
+                        hellobar2status = 0;
+                }
+
+
+
+                }
+
+
+        function ShakeHellobarBtn() {
+        doBounce($('#hellobarbtn'), 4, '10px', 100, 'lr');
+                loophellobar = setTimeout("ShakeHellobarBtn()", 5000);
+        }
+
+
+
+
+
+
+
+
+
+
+        var tSB;
+                var LiczSekundyTematDnia = 0;
+                var LiczSekundyTematDniaStatus = 1;
+                function Sekundy() {
+
+                var tSB = setTimeout("Sekundy()", 1000);
+                        //zatrzymaj slidery
+                        //LiczSekundyOpinieStatus=0;
+
+
+                        if (LiczSekundyTematDniaStatus == 1) {
+                LiczSekundyTematDnia++;
+                }
+
+
+                //slider opinie
+                if (LiczSekundyTematDnia > 5) {
+                showTematDnia(0);
+                }
+
+                }
+//---------------------------------------------
+
+
+
+//
+        function getnextlist() {
+
+        //$('#BtnWesprzyjAkcjaSimple').html('Proszę czekać...');
+
+        $.post('/Strona/ajax/getnextlist', {  },
+                function(data) {
+                if (data == 'stop') {
+                $('#loadingmore').hide();
+                } else{
+                $('#loadc').append(data);
+                        $('#loadingmore').hide();
+                }
+                }
+        );
+        }
+
+
+
+//banery
+jsonObj = [];
+
+function getBaner() {
+ var rand = Math.round(Math.random()*10000);
+
+$.post("/ajax/getbanersfast", { 'loc':$(location).attr("href"), cos: rand },
+  function(data) {
+      
+     for(i=0;i<data.length;i++) {
+         //console.log(data[i].id_kategoria+' '+data[i].url);
+        makeBaner(data[i]);
+     }
+     
+     // do google View
+    jsonString = JSON.stringify(jsonObj);
+    jsonObjG = JSON.parse(jsonString);
+    dataLayer.push({
+      'ecommerce': {
+        'promoView': {
+          'promotions': jsonObjG
+        }
+      }
+    });
+    
+  
+     //console.log(jsonObj);
+     
+   },"json"
+  );
+
+
+}
+
+
+
+
+
+//pokaz baner
+ function makeBaner(tabBaner) {
+  var theobj= $('#baner'+tabBaner.id_kategoria);
+
+
+ if(theobj.length) {
+        jitem = {}
+        jitem ['id'] = tabBaner.id_kategoria;
+        jitem ["name"] = tabBaner.nazwa;
+        jitem ["position"] = tabBaner.miejsce;
+        jsonObj.push(jitem);
+     
+    //console.log(tabBaner.id_kategoria) 
+   theobj.fadeIn(200);
+   theobj.html(tabBaner.script);
+   
+   //przypisz param do onclick
+   theobj.attr("url", tabBaner.url);
+   theobj.attr("bid", tabBaner.id_kategoria);
+   theobj.attr("name", tabBaner.nazwa);
+   theobj.attr("position", tabBaner.miejsce);
+  }
+  
+
+ }
+ 
+ 
+ 
+ 
+ //click baner
+ function clickBaner(thi, id) {
+   dataLayer.push({
+    'event': 'promotionClick',
+    'ecommerce': {
+      'promoClick': {
+        'promotions': [
+         {
+           'id': $('#baner'+id).attr('bid'),                         // Name or ID is required.
+           'name': $('#baner'+id).attr('name'),
+           'position': $('#baner'+id).attr('position')
+         }]
+      }
+    },
+    'eventCallback': function() {
+         
+
+        
+      
+    }
+   });
+   
+        if($(thi).attr('target')=='_blank') {
+            window.open($('#baner'+id).attr('url'));
+        }else{
+           document.location = $('#baner'+id).attr('url');
+        }
+ }
