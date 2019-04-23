@@ -1,0 +1,3 @@
+greyscale
+200dpi
+70% compression jpeg

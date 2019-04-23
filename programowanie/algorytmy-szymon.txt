@@ -1,0 +1,18 @@
+- Schematy blokowe (tylko po to żeby umieć je czytać)
+- opcjonalnie diagram przepływu. Bo widywalem dokumentację w ten sposób pisana.
+I to w wieczór można spokojnie ogarnąć.
+
+Potem bym spróbował ogarnąć listę jedno kierunkowa (najlepiej w Javie bo tam wyraźnie będzie widać ograniczenia języka w js da się zrobić inaczej i wtedy temat się rozmywa) I to radził bym ci zrobić ze mną. To około 6h do dnia bym liczył. Jesli nie masz tyle czasu to stos.
+
+I w ciągu tego dnia byśmy mogli ogarnąć typy generyczne bo cię wkurzalo że uczą tego bez sensu a akurat tam mają zastosowanie.
+
+Na koniec zostawił bym sobie drzewa i złożoność obliczeniowa. Ale umiejąc listy możesz ogarnąć je sam ale to też dzień.
+
+I po tym można zrobić rekreację żeby się poruszać po tym drzewie
+
+Ta złożoność na drzewach ma sens bo tam się pojawi hasło dziel i rządz. Gdzie dzielisz to drzewo na gałęzie i tam działasz na nich osobno szybciej
+
+Czyli dzień kodowania i kilka wieczorów teorii
+
+A zrobiłbym to bo po takim maratonie wiele rzeczy jest jasnych. Sorki ze tak się rozpisałem
+
